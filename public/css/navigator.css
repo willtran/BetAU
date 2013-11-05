@@ -1,0 +1,90 @@
+/* The Main Navigator styling (in page header) */
+#dropdown_navigator {
+	width: auto;
+	padding: 0px;
+	display: inline-block;
+	list-style: none;
+	-moz-box-shadow: inset 0px 0px 1px #fff;
+	-webkit-box-shadow: inset 0px 0px 1px #fff;
+	border: 1px solid #ccc;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background: #e2e2e2;
+	background: -moz-linear-gradient(#f3f3f3, #e2e2e2);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#f3f3f3), to(#e2e2e2));
+}
+
+#dropdown_navigator li {
+	padding: 10px 0px 10px 0px;
+	float: left;
+	position: relative;
+	display: inline-block;
+}
+
+#dropdown_navigator li a {
+	padding: 10px 15px 10px 15px;
+	text-shadow: -1px 1px 0px #f6f6f6;
+	-moz-box-shadow: inset 0px 0px 1px #fff;
+	-webkit-box-shadow: inset 0px 0px 1px #fff;
+	border-right: 1px solid #ccc;
+	font-weight: bold;
+	text-decoration: none;
+	color: #ED591A;
+}
+
+#dropdown_navigator li a:hover {
+	background: #f9f9f9;
+	background: -moz-linear-gradient(#f9f9f9, #e8e8e8);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#f9f9f9), to(#e8e8e8));
+}
+
+#dropdown_navigator li a:active {
+	background: #e2e2e2;
+	background: -moz-linear-gradient(#e2e2e2, #f3f3f3);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#e2e2e2), to(#f3f3f3));
+}
+
+#dropdown_navigator li a.first {
+	-moz-border-radius: 5px 0px 0px 5px;
+	-webkit-border-radius: 5px 0px 0px 5px;
+}
+
+#dropdown_navigator li a.last {
+ -moz-border-radius:0px 5px 5px 0px;
+ -webkit-border-radius:0px 5px 5px 0px;
+ }
+
+/* Sub-Navigator styling (in page header)*/
+#dropdown_navigator .sub_navigator {
+	width: 160px;
+	padding: 0px;
+	position: absolute;
+	top: 38px;
+	left: 0px;
+	border: 1px solid #ccc;
+	background: #e2e2e2;
+}
+
+#dropdown_navigator .sub_navigator li {
+	width: 160px;
+	padding: 0px;
+}
+
+#dropdown_navigator .sub_navigator li a {
+	display: block;
+	border-bottom: 1px solid #ccc;
+	background: -moz-linear-gradient(#f3f3f3, #e2e2e2);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#f3f3f3), to(#e2e2e2));
+}
+
+#dropdown_navigator .sub_navigator li a:hover {
+	background: #f9f9f9;
+	background: -moz-linear-gradient(#f9f9f9, #e8e8e8);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#f9f9f9), to(#e8e8e8));
+}
+
+#dropdown_navigator .sub_navigator li a:active {
+	background: #e2e2e2;
+	background: -moz-linear-gradient(#e2e2e2, #f3f3f3);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#e2e2e2), to(#f3f3f3));
+}
