@@ -93,6 +93,12 @@ return array(
 	|
 	*/
 
-	'attributes' => array(),
+	'attributes' => array(
+		'email'				=> 'E-Mail Address',
+		'level_id'			=> 'User Level',
+		'username'			=> 'Username',
+		'password'			=> 'Password',
+		'confirm_password'	=> 'Confirm Password'
+	),
 
 );

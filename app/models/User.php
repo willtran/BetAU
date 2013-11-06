@@ -13,14 +13,18 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	protected $table = 'users';
 	
 	/**
-	 * 
-	 * The database fields that will be allow to be filled through data seeder
+	 * The database fields that can be mass-assignment
 	 * 
 	 * @var string
-	 * 
 	 */
-	protected $fillable = array('email', 'username', 'password',' level_id');
+	protected $fillable = array('email', 'password','username', 'level_id');
 	
+	/**
+	 * The database fields that cannot be mass-assignment
+	 * 
+	 * @var string
+	 */
+	protected $guarded = array('id');
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

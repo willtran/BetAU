@@ -29,6 +29,8 @@ App::before(function($request)
 	Route::filter('auth', function(){
 		if(Auth::guest())
 		{
+			//Save requested URL in order to redirect afterwards
+        	Session::put('redirect_url', URL::current());
 			return Redirect::route('login')->with('flash_error', 'You must logged in to access that page!');
 		}
 	});

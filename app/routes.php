@@ -32,5 +32,27 @@ Route::get('admin/user/manage', array('as' => 'user-manage', 'uses' => 'UserCont
 
 Route::get('admin/user/create', array('as' => 'user-create', function(){
 	return View::make('user.create');
-}));
+}))->before('auth');
+
 Route::post('admin/user/create', 'UserController@create')->before('auth');
+
+Route::get('admin/user/edit', function(){
+	$iUserId = (int) Input::get('id');
+	
+	if(!$iUserId)
+	{
+		return View::make('user.edit')->with('flash_error', 'Related user not found!');
+	}
+	else
+	{
+		$aUser = User::find($iUserId);
+		if(!$aUer)
+		{
+			return View::make('user.edit')->with('flash_error', 'Related user not found!');
+		}
+		else 
+		{
+			return View::make('user.edit')->with('flash_error', 'Related user not found!');
+		}
+	}
+})->before('auth');

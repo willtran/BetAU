@@ -21,16 +21,6 @@
 			{{ Form::label('username','Username') }}
 			{{ Form::text('username', Input::old('username')) }}
 		</p>
-		<!-- Password field -->
-		<p>
-			{{ Form::label('password','Password') }}
-			{{ Form::password('password') }}
-		</p>
-		<!-- Confirm Password field -->
-		<p>
-			{{ Form::label('confirm_password','Confirm Password') }}
-			{{ Form::password('confirm_password') }}
-		</p>
 		<p>
 			{{ Form::label('level_id','User Level') }}
 			{{ Form::select('level_id', array(
@@ -40,7 +30,10 @@
 			}}
 		</p>
 		<!-- Sumbit button -->
-		<p>{{ Form::submit('Create')}}</p>
-		
+		<p>{{ Form::submit('Edit')}}</p>
+		<p>{{ Form::button('Cancel',null, array(
+				'onclick' => URL::previous()
+		))}}
+		</p>
 	{{ Form::close() }}
 @stop

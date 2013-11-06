@@ -5,8 +5,8 @@
 			<li>{{ HTML::linkRoute('admin-index','Home',array(),array('class'=>'first')) }}</li>
 			<li><a href="#">Users</a>
 				<ul class="sub_navigator">
-					<li><a href="#">Manage Users</a></li>
-					<li><a href="#">Create New User</a></li>
+					<li>{{ HTML::linkRoute('user-manage','Manage Users') }}</li>
+					<li>{{ HTML::linkRoute('user-create','Create New User') }}</li>
 				</ul>
 			</li>
 			<li><a href="#">Domains</a>
