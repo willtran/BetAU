@@ -19,7 +19,7 @@ App::before(function($request)
 	Route::filter('guest', function(){
 		if(Auth::check())
 		{
-			return Redirect::route('admin-home')->with('flash_notice', 'You are already logged in!');
+			return Redirect::route('admin-index')->with('flash_notice', 'You are already logged in!');
 		}
 	});
 	

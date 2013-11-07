@@ -1,16 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-<h1>Create New User</h1>
-<!-- Check for error flash var -->
-@if(Session::has('flash_error'))
-	<div id="flash_error">{{ Session::get('flash_error') }}</div>
-@endif
-
-<!-- Check for notice flash var -->
-@if(Session::has('flash_notice'))
-	<div id="flash_notice">{{ Session::get('flash_notice') }}</div>
-@endif
+<h1>User</h1>
 
 <!-- User management space -->
 <table id="user_management_table" cellspacing="3" border="1" cellpadding="1">
@@ -27,7 +18,7 @@
 	<tbody>
 		@if(count($users) > 0)
 			@foreach($users as $user)
-				<tr>
+				<tr id="user_{{ $user->id }}">
 					<td width="15px"></td>
 					<td>{{ $user->id }}</td>
 					<td>{{ $user->username }}</td>
@@ -40,7 +31,9 @@
 						@endif
 					</td>
 					<td>{{ HTML::linkRoute('user-edit','Edit',array('id' => $user->id)) }}
-						| Delete</td>
+						|
+						<a href="javascript:void(0);" onclick="user.userDelete('{{ URL::route('user-delete')}}', {{ $user->id }});">Delete</a>
+					</td>
 				</tr>
 			@endforeach
 		@else

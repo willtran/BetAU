@@ -18,17 +18,28 @@ Route::get('admin/login', array('as' => 'login', function (){
 
 Route::post('admin/login', 'UserController@login');
 
-Route::get('admin/logout', array('as' => 'logout', 'uses' =>'UserController@logout'));
+Route::get('admin/logout', array(
+	'as' => 'logout', 
+	'uses' =>'UserController@logout'));
 
 // Admin route handlers
 Route::get('/admin', 'AdminController@index')->before('auth');
 
-Route::get('admin/home', array('as' => 'admin-home', 'uses' => 'AdminController@home'))->before('guest');
+Route::get('admin/home', array(
+	'as' => 'admin-home',
+	'uses' => 'AdminController@home'))
+->before('guest');
 
-Route::get('admin/index', array('as' => 'admin-index', 'uses' => 'AdminController@index'))->before('auth');
+Route::get('admin/index', array(
+	'as' => 'admin-index',
+	'uses' => 'AdminController@index'))
+->before('auth');
 
 // User management route handlers
-Route::get('admin/user/manage', array('as' => 'user-manage', 'uses' => 'UserController@manage'))->before('auth');
+Route::get('admin/user/manage', array(
+	'as' => 'user-manage', 
+	'uses' => 'UserController@manage'))
+->before('auth');
 
 Route::get('admin/user/create', array('as' => 'user-create', function(){
 	return View::make('user.create');
@@ -36,23 +47,21 @@ Route::get('admin/user/create', array('as' => 'user-create', function(){
 
 Route::post('admin/user/create', 'UserController@create')->before('auth');
 
-Route::get('admin/user/edit', function(){
+Route::get('admin/user/edit', array('as' => 'user-edit', function(){
 	$iUserId = (int) Input::get('id');
-	
-	if(!$iUserId)
+	$oUser = User::find($iUserId);
+		
+	if(!$oUser)
 	{
-		return View::make('user.edit')->with('flash_error', 'Related user not found!');
+		return Redirect::route('user-manage')->with('flash_error', 'Related user not found!');
 	}
-	else
+	else 
 	{
-		$aUser = User::find($iUserId);
-		if(!$aUer)
-		{
-			return View::make('user.edit')->with('flash_error', 'Related user not found!');
-		}
-		else 
-		{
-			return View::make('user.edit')->with('flash_error', 'Related user not found!');
-		}
+		return View::make('user.edit')->with('user', $oUser);
 	}
-})->before('auth');
+}))->before('auth');
+
+Route::post('admin/user/edit', 'UserController@edit')->before('auth');
+
+Route::get('admin/user/delete', array('as' => 'user-delete', 'uses' => 'UserController@delete'))
+->before('auth');
