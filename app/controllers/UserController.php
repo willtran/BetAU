@@ -41,7 +41,7 @@ class UserController extends BaseController
 	{
 		Auth::logout();
 		
-		return Redirect::route('admin-home')
+		return Redirect::route('login')
         	->with('flash_notice', 'You are successfully logged out.');
 	}
 	
@@ -51,7 +51,8 @@ class UserController extends BaseController
 	public function manage()
 	{
 		$aUsers = User::all();
-		return View::make('user.manage')->with('users', $aUsers);
+		return View::make('user.manage')->with('users', $aUsers)
+				->with('menu', array('main'=>'user','side_bar'=>'manage'));
 	}
 	
 	/**

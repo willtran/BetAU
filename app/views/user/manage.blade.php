@@ -1,38 +1,36 @@
 @extends('admin.layout')
 
 @section('content')
-<h1>User</h1>
-
 <!-- User management space -->
-<table id="user_management_table" cellspacing="3" border="1" cellpadding="1">
+<table id="user_management_table">
 	<thead>
 		<tr>
-			<td width="15px"></td>
-			<td>User ID</td>
-			<td>Username</td>
-			<td>E-mail Address</td>
-			<td>User Level</td>
-			<td>Action</td>
+			<td width="5%" align="center" style="border-top-left-radius: 10px;"></td>
+			<td width="15%" align="center">User ID</td>
+			<td width="15%">Username</td>
+			<td width="25%">E-mail Address</td>
+			<td width="15%" align="center">User Level</td>
+			<td width="25%" align="center" style="border-top-right-radius: 10px;">Action</td>
 		</tr>
 	</thead>
 	<tbody>
 		@if(count($users) > 0)
-			@foreach($users as $user)
-				<tr id="user_{{ $user->id }}">
-					<td width="15px"></td>
-					<td>{{ $user->id }}</td>
+			@foreach($users as $key => $user)
+				<tr id="user_{{ $user->id }}" @if($key%2) class="event_background" @else class="odd_background" @endif >
+					<td width="5%" align="center"></td>
+					<td align="center">{{ $user->id }}</td>
 					<td>{{ $user->username }}</td>
 					<td>{{ $user->email }}</td>
-					<td>
+					<td align="center">
 						@if($user->level_id == 1)
 							Admin
 						@elseif($user->level_id == 2)
 							Editor
 						@endif
 					</td>
-					<td>{{ HTML::linkRoute('user-edit','Edit',array('id' => $user->id)) }}
-						|
-						<a href="javascript:void(0);" onclick="user.userDelete('{{ URL::route('user-delete')}}', {{ $user->id }});">Delete</a>
+					<td align="center">
+						<a class="user_edit" href="{{ URL::route('user-edit',array('id' => $user->id)) }}" ><img src="{{ asset('/images/dashboard/blank.png') }}" alt="User Edit" title="Edit user"/></a>
+						<a class="user_delete" href="javascript:void(0);" onclick="user.userDelete('{{ URL::route('user-delete')}}',{{ $user->id }});"><img class="user_delete" src="{{asset('images/dashboard/blank.png')}}" alt="User Delete" title="Delete user"/></a>
 					</td>
 				</tr>
 			@endforeach

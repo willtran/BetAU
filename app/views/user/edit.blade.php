@@ -11,34 +11,39 @@
 	
 	<!-- User create form -->
 
-	{{ Form::open(array('id'=> 'user_create_form')) }}
-		<p>
-			{{ Form::hidden('user_id', $user->id) }}
-		</p>
-		<!-- Email field -->
-		<p>
-			{{ Form::label('email', 'Email') }}
-			{{ Form::email('email', $user->email) }}
-		</p>
-		<!-- Username field -->
-		<p>
-			{{ Form::label('username', 'Username') }}
-			{{ Form::text('username', $user->username) }}
-		</p>
-		<p>
-			{{ Form::label('level_id','User Level') }}
-			{{ Form::select('level_id', array(
-								''	=> '--- Select a level ---',
-								'1' => 'Admin',
-								'2' => 'Editor'), 
-							$user->level_id) 
-			}}
-		</p>
-		<!-- Sumbit button -->
-		<p>{{ Form::submit('Edit')}}
-		   {{ Form::button('Cancel', array(
-				'onclick' => "document.location.href='".URL::previous()."'" )
-		)}}
-		</p>
+	{{ Form::open(array('id'=> 'user_edit_form')) }}
+		<table>
+			<tr>
+				<td> </td>
+				<td>{{ Form::hidden('user_id', $user->id) }}</td>
+			</tr>
+			<!-- Email field -->
+			<tr>
+				<td>{{ Form::label('email', 'Email') }}</td>
+				<td>{{ Form::email('email', $user->email) }}</td>
+			</tr>
+			<!-- Username field -->
+			<tr>
+				<td>{{ Form::label('username', 'Username') }}</td>
+				<td>{{ Form::text('username', $user->username) }}</td>
+			</tr>
+			<tr>
+				<td>{{ Form::label('level_id','User Level') }}</td>
+				<td>{{ Form::select('level_id', array(
+									''	=> '--- Select a level ---',
+									'1' => 'Admin',
+									'2' => 'Editor'), 
+								$user->level_id)}}</td>
+			</tr>
+			<!-- Sumbit button -->
+			<tr>
+				<td></td>
+				<td>{{ Form::submit('Edit')}}
+					   {{ Form::button('Cancel', array(
+							'onclick' => "document.location.href='".URL::previous()."'" )
+						)}}
+				</td>
+			</tr>
+		</table>
 	{{ Form::close() }}
 @stop

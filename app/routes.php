@@ -42,7 +42,7 @@ Route::get('admin/user/manage', array(
 ->before('auth');
 
 Route::get('admin/user/create', array('as' => 'user-create', function(){
-	return View::make('user.create');
+	return View::make('user.create')->with('menu', array('main'=>'user','side_bar'=>'create'));;
 }))->before('auth');
 
 Route::post('admin/user/create', 'UserController@create')->before('auth');
@@ -57,7 +57,8 @@ Route::get('admin/user/edit', array('as' => 'user-edit', function(){
 	}
 	else 
 	{
-		return View::make('user.edit')->with('user', $oUser);
+		return View::make('user.edit')->with('user', $oUser)
+				->with('menu', array('main'=>'user','side_bar'=>'manage'));
 	}
 }))->before('auth');
 
