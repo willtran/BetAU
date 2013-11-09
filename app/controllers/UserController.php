@@ -1,8 +1,5 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 class UserController extends BaseController
 {
 	/**
@@ -29,7 +26,7 @@ class UserController extends BaseController
 		{
 			// Redirect back to login form
 			return Redirect::route('login')
-				->with('flash_error','Invalid username/password!')
+				->with('flash_error_login','Invalid username/password!')
 				->withInput();
 		}
 	}
@@ -42,7 +39,7 @@ class UserController extends BaseController
 		Auth::logout();
 		
 		return Redirect::route('login')
-        	->with('flash_notice', 'You are successfully logged out.');
+        	->with('flash_notice_login', 'You are successfully logged out.');
 	}
 	
 	/**
@@ -50,8 +47,8 @@ class UserController extends BaseController
 	 */
 	public function manage()
 	{
-		$aUsers = User::all();
-		return View::make('user.manage')->with('users', $aUsers)
+		$oUsers = User::all();
+		return View::make('user.manage')->with('users', $oUsers)
 				->with('menu', array('main'=>'user','side_bar'=>'manage'));
 	}
 	

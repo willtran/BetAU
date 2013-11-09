@@ -1,35 +1,49 @@
 @extends('admin.layout')
 
 @section('content')
-	<h1>Edit User</h1>
 	<!-- Check for error flash var -->
 	@if($errors->has())
 		@foreach($errors->all() as $message)
 			<div id="flash_error">{{ $message }}</div>
 		@endforeach
 	@endif
-	
+	<div class="content_section_title">
+		Edit User
+	</div>
+	<div class="content_section">
 	<!-- User create form -->
-
 	{{ Form::open(array('id'=> 'user_edit_form')) }}
-		<table>
+		<table cellspacing="10">
 			<tr>
-				<td> </td>
-				<td>{{ Form::hidden('user_id', $user->id) }}</td>
+				<td class="form_label"> </td>
+				<td class="form_field">{{ Form::hidden('user_id', $user->id) }}</td>
 			</tr>
 			<!-- Email field -->
 			<tr>
-				<td>{{ Form::label('email', 'Email') }}</td>
-				<td>{{ Form::email('email', $user->email) }}</td>
+				<td class="form_label">
+					{{ Form::label('email', 'Email') }}
+					<span class="required">(*)</span>
+				</td>
+				<td class="form_field">
+					{{ Form::email('email', $user->email) }}
+				</td>
 			</tr>
 			<!-- Username field -->
 			<tr>
-				<td>{{ Form::label('username', 'Username') }}</td>
-				<td>{{ Form::text('username', $user->username) }}</td>
+				<td class="form_label">
+					{{ Form::label('username', 'Username') }}
+					<span class="required">(*)</span>
+				</td>
+				<td class="form_field">
+					{{ Form::text('username', $user->username) }}
+				</td>
 			</tr>
 			<tr>
-				<td>{{ Form::label('level_id','User Level') }}</td>
-				<td>{{ Form::select('level_id', array(
+				<td class="form_label">
+					{{ Form::label('level_id','User Level') }}
+					<span class="required">(*)</span>
+				</td>
+				<td class="form_field">{{ Form::select('level_id', array(
 									''	=> '--- Select a level ---',
 									'1' => 'Admin',
 									'2' => 'Editor'), 
@@ -37,8 +51,8 @@
 			</tr>
 			<!-- Sumbit button -->
 			<tr>
-				<td></td>
-				<td>{{ Form::submit('Edit')}}
+				<td class="form_label"></td>
+				<td class="form_field">{{ Form::submit('Edit User')}}
 					   {{ Form::button('Cancel', array(
 							'onclick' => "document.location.href='".URL::previous()."'" )
 						)}}
@@ -46,4 +60,5 @@
 			</tr>
 		</table>
 	{{ Form::close() }}
+	</div>
 @stop

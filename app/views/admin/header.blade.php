@@ -45,8 +45,8 @@
 			</li>
 			<li><a href="javascrip:void(0);" class="last">Domains</a>
 				<ul class="sub_navigator">
-					<li><a href="#">Manage Domains</a></li>
-					<li><a href="#">Create New Domain</a></li>
+					<li>{{ HTML::linkRoute('admin.domain.index','Manage Domains') }}</li>
+					<li>{{ HTML::linkRoute('admin.domain.create','Add NewDomain') }}</li>
 				</ul>
 			</li>
 		@else

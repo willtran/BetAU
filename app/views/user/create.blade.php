@@ -7,43 +7,72 @@
 			<div id="flash_error">{{ $message }}</div>
 		@endforeach
 	@endif
-	
+	<div class="content_section_title">
+		Create New User
+	</div>
+	<div class="content_section">
 	<!-- User create form -->
 	{{ Form::open(array('id'=> 'user_create_form')) }}
 		<!-- Email field -->
-		<table>
+		<table cellspacing="10">
 			<tr>
-				<td>{{ Form::label('email','Email') }}</td>
-				<td>{{ Form::text('email', Input::old('email'))}}</td>
+				<td class="form_label">
+					{{ Form::label('email','Email') }}
+					<span class="required">(*)</span>
+				</td>
+				<td class="form_field">
+					{{ Form::text('email', Input::old('email'))}}
+				</td>
 			</tr>
 			<!-- Username field -->
 			<tr>
-				<td>{{ Form::label('username','Username') }}</td>
-				<td>{{ Form::text('username', Input::old('username')) }}</td>
+				<td class="form_label">
+					{{ Form::label('username','Username') }}
+					<span class="required">(*)</span>
+				</td>
+				<td class="form_field">
+					{{ Form::text('username', Input::old('username')) }}
+				</td>
 			</tr>
 			<!-- Password field -->
 			<tr>
-				<td>{{ Form::label('password','Password') }}</td>
-				<td>{{ Form::password('password') }}</td>
+				<td class="form_label">
+					{{ Form::label('password','Password') }}
+					<span class="required">(*)</span>
+				</td>
+				<td class="form_field">
+					{{ Form::password('password') }}
+				</td>
 			</tr>
 			<!-- Confirm Password field -->
 			<tr>
-				<td>{{ Form::label('confirm_password','Confirm Password') }}</td>
-				<td>{{ Form::password('confirm_password') }}</td>
+				<td class="form_label">
+					{{ Form::label('confirm_password','Confirm Password') }}
+					<span class="required">(*)</span>
+				</td>
+				<td class="form_field">
+					{{ Form::password('confirm_password') }}
+				</td>
 			</tr>
 			<tr>
-				<td>{{ Form::label('level_id','User Level') }}</td>
-				<td>{{ Form::select('level_id', array(
-									''	=> '--- Select a level ---',
-									'1' => 'Admin',
-									'2' => 'Editor')) 
+				<td class="form_label">
+					{{ Form::label('level_id','User Level') }}
+					<span class="required">(*)</span>
+				</td>
+				<td class="form_field">
+					{{ Form::select('level_id', array(
+										''	=> '--- Select a level ---',
+										'1' => 'Admin',
+										'2' => 'Editor'
+										),Input::old('level_id')) 
 				}}</td>
 			</tr>
 			<!-- Sumbit button -->
 			<tr>
 				<td></td>
-				<td>{{ Form::submit('Create')}}</td>
+				<td>{{ Form::submit('Create User')}}</td>
 			</tr>
 		</table>
 	{{ Form::close() }}
+	</div>
 @stop

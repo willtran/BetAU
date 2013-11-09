@@ -11,7 +11,15 @@
 |
 */
 
-//	Log-in route handlers
+/**
+ *  Route resource definition
+ */
+// Route::resource('admin','AdminController'));
+// Route::resource('user','UserController');
+
+/*
+ * 	Log-in route handlers
+ */
 Route::get('admin/login', array('as' => 'login', function (){
 	return View::make('user.login');
 }))->before('guest');
@@ -22,7 +30,9 @@ Route::get('admin/logout', array(
 	'as' => 'logout', 
 	'uses' =>'UserController@logout'));
 
-// Admin route handlers
+/*
+ * Admin route handlers
+ */
 Route::get('/admin', 'AdminController@index')->before('auth');
 
 Route::get('admin/home', array(
@@ -35,7 +45,9 @@ Route::get('admin/index', array(
 	'uses' => 'AdminController@index'))
 ->before('auth');
 
-// User management route handlers
+/*
+ * User management route handlers 
+ */
 Route::get('admin/user/manage', array(
 	'as' => 'user-manage', 
 	'uses' => 'UserController@manage'))
@@ -66,3 +78,10 @@ Route::post('admin/user/edit', 'UserController@edit')->before('auth');
 
 Route::get('admin/user/delete', array('as' => 'user-delete', 'uses' => 'UserController@delete'))
 ->before('auth');
+
+/* 
+ * Domain management route handlers
+ */
+Route::group(array('prefix'=>'admin','before'=>'auth'), function (){
+	Route::resource('domain', 'DomainController');
+});
