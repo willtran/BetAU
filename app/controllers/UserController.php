@@ -1,7 +1,7 @@
 <?php
 
-class UserController extends BaseController
-{
+class UserController extends \BaseController {
+
 	/**
 	 * Login Action
 	 */
@@ -17,10 +17,10 @@ class UserController extends BaseController
 		if(Auth::attempt($aUser))
 		{
 			// Redirect to the previous access link, otherwise redirect to the admin dashboard home pagw
-			$sRedirectUrl = Session::get('redirect_url','admin/index');
+			$sRedirectUrl = Session::get('redirect_url', 'admin/index');
 			Session::forget('redirect_url');
 			return Redirect::to($sRedirectUrl)
-				->with('flash_notice','You are successfuly logged in.');
+				->with('flash_notice', 'You are successfuly logged in.');
 		}
 		else 
 		{
@@ -43,30 +43,38 @@ class UserController extends BaseController
 	}
 	
 	/**
-	 * User Manage Action
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
 	 */
-	public function manage()
+	public function index()
 	{
 		$oUsers = User::all();
-		return View::make('user.manage')->with('users', $oUsers)
-				->with('menu', array('main'=>'user','side_bar'=>'manage'));
+		return View::make('user.index')->with('users', $oUsers)
+				->with('menu', array('main'=>'user','side_bar'=>'index'));
 	}
-	
+
 	/**
-	 * User Create Action
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
 	 */
 	public function create()
 	{
+		return View::make('user.create')
+		->with('menu', array('main'=>'user','side_bar'=>'create'));;
+	}
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
 		// Get user posted data
-                $aUserData = array(
-                        'email'           	=> Input::get('email'),
-                        'username'        	=> Input::get('username'),
-                        'password'      	=> Input::get('password'),
-                        'confirm_password' 	=> Input::get('confirm_password'),
-                        'level_id'			=> Input::get('level_id')
-                );
-                
-                // var_dump($aUserData);die;
+                $aUserData = Input::all();                
+
                 // Define validation rules
                 $aRules = array(
                         'email'        		=> 'required|email|unique:users,email',
@@ -89,21 +97,55 @@ class UserController extends BaseController
 		$oUser = new User($aUserData);
 		$oUser->save();
 		
-		return Redirect::route('user-manage')->with('flash_notice', 'User <strong>'.$aUserData['username'].'</strong> had been created.');;
+		return Redirect::route('admin.user.index')->with('flash_notice', 'User <strong>'.$aUserData['username'].'</strong> had been created.');;
 	}
 
 	/**
-	 * User Edit Action
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
 	 */
-	public function edit()
+	public function show($id)
 	{
-		// Get selected user
-		$iUserId = Input::get('user_id');
-		$oUser = User::find($iUserId);
+		//
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		$oUser = User::find($id);
+		
 		if(!$oUser)
 		{
-			return View::make('user.manage')
-					->with('flash_error', 'Related user not found!')
+			return Redirect::route('admin.user.index')->with('flash_error', 'Related user not found!');
+		}
+		else 
+		{
+			return View::make('user.edit')->with('user', $oUser)
+					->with('menu', array('main'=>'user','side_bar'=>'index'));
+		}
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		// Get selected user
+		$oUser = User::find($id);
+		if(!$oUser)
+		{
+			return Redirect::route('admin.user.index')
+					->with('flash_error', 'Selected user not found!')
 					->withInput();
 		}
 
@@ -132,7 +174,7 @@ class UserController extends BaseController
 		$oValidation = Validator::make($aUserData, $aRules);
 		if($oValidation->fails())
 		{
-			return Redirect::route('user-edit', array('id'=>$oUser->id))->withErrors($oValidation);
+			return Redirect::route('admin.user.edit', array('user'=>$oUser->id))->withErrors($oValidation);
 		}
 		
 		// Process update user information
@@ -141,27 +183,29 @@ class UserController extends BaseController
 		$oUser->level_id = $aUserData['level_id'];
 		$oUser->save();
 		
-		return Redirect::route('user-manage')->with('flash_notice', 'User <strong>'.$oUser->username.'</strong> had been successfully updated.');
+		return Redirect::route('admin.user.index')->with('flash_notice', 'User <strong>'.$oUser->username.'</strong> had been successfully updated.');
 	}
 
 	/**
-	 * User Delete Action
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
 	 */
-	public function delete()
+	public function destroy($id)
 	{
 		// Get selected user
-		$iUserId = Input::get('user_id');
-		$oUser = User::find($iUserId);
+		$oUser = User::find($id);
 		if(!$oUser)
 		{
-			return View::make('user.manage')
-					->with('flash_error', 'Related user not found!')
+			return Redirect::route('admin.user.index')
+					->with('flash_error', 'Selected user not found!')
 					->withInput();
 		}
 		
 		// Process delete user
 		$oUser->delete();
+		
 		return 'The user <strong>'.$oUser->username.'</strong> had been successfully deleted!';
 	}
 }
-?>
