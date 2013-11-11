@@ -5,12 +5,12 @@
 			<!-- User menu site bar -->
 			@if($menu['main'] == 'user')
 				<li class="user_menu">
-					<a href="{{URL::route('user-manage')}}" @if($menu['side_bar'] == 'manage') class="active" @endif>
+					<a href="{{URL::route('admin.user.index')}}" @if($menu['side_bar'] == 'index') class="active" @endif>
 						Manage Users
 					</a>
 				</li>
 				<li class="user_menu">
-					<a href="{{URL::route('user-create')}}"  @if($menu['side_bar'] == 'create') class="active" @endif>
+					<a href="{{URL::route('admin.user.create')}}"  @if($menu['side_bar'] == 'create') class="active" @endif>
 						Add New User
 					</a>
 				</li>
@@ -29,7 +29,7 @@
 			@else
 				<ul id="sidebar_list">
 					<li>
-						<a href="{{URL::route('admin-home')}}" class="active">
+						<a href="{{URL::route('admin.index')}}" class="active">
 							Announcement
 						</a>
 					</li>

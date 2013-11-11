@@ -4,7 +4,7 @@
 	<div id="header_bar">
 		<!-- Logo -->
 		<div id="site_logo_block">
-			<a id="site_logo" href="{{ URL::route('admin-index')}}"></a>
+			<a id="site_logo" href="{{ URL::route('admin.index')}}"></a>
 		</div>
 		<!-- Mini menu -->
 		<ul id="mini_menu">
@@ -36,11 +36,11 @@
 	</div>
 	<ul id="dropdown_navigator">
 		@if(Auth::check())
-			<li>{{ HTML::linkRoute('admin-index','Home',array(),array('class'=>'first')) }}</li>
+			<li>{{ HTML::linkRoute('admin.index','Home',array(),array('class'=>'first')) }}</li>
 			<li><a href="javascrip:void(0);" @if($menu['main']=='user') class="active" @endif >Users</a>
 				<ul class="sub_navigator">
-					<li>{{ HTML::linkRoute('user-manage','Manage Users') }}</li>
-					<li>{{ HTML::linkRoute('user-create','Create New User') }}</li>
+					<li>{{ HTML::linkRoute('admin.user.index','Manage Users') }}</li>
+					<li>{{ HTML::linkRoute('admin.user.create','Create New User') }}</li>
 				</ul>
 			</li>
 			<li><a href="javascrip:void(0);" class="last">Domains</a>

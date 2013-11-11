@@ -12,7 +12,7 @@
 	</div>
 	<div class="content_section">
 	<!-- User create form -->
-	{{ Form::open(array('id'=> 'user_create_form')) }}
+	{{ Form::open(array('id'=> 'user_create_form', 'action'=>'UserController@store', 'method' =>'post')) }}
 		<!-- Email field -->
 		<table cellspacing="10">
 			<tr>

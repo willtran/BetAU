@@ -11,12 +11,6 @@
 |
 */
 
-/**
- *  Route resource definition
- */
-// Route::resource('admin','AdminController'));
-// Route::resource('user','UserController');
-
 /*
  * 	Log-in route handlers
  */
@@ -29,59 +23,27 @@ Route::post('admin/login', 'UserController@login');
 Route::get('admin/logout', array(
 	'as' => 'logout', 
 	'uses' =>'UserController@logout'));
-
-/*
- * Admin route handlers
- */
-Route::get('/admin', 'AdminController@index')->before('auth');
-
-Route::get('admin/home', array(
-	'as' => 'admin-home',
-	'uses' => 'AdminController@home'))
-->before('guest');
-
-Route::get('admin/index', array(
-	'as' => 'admin-index',
-	'uses' => 'AdminController@index'))
-->before('auth');
-
-/*
- * User management route handlers 
- */
-Route::get('admin/user/manage', array(
-	'as' => 'user-manage', 
-	'uses' => 'UserController@manage'))
-->before('auth');
-
-Route::get('admin/user/create', array('as' => 'user-create', function(){
-	return View::make('user.create')->with('menu', array('main'=>'user','side_bar'=>'create'));;
-}))->before('auth');
-
-Route::post('admin/user/create', 'UserController@create')->before('auth');
-
-Route::get('admin/user/edit', array('as' => 'user-edit', function(){
-	$iUserId = (int) Input::get('id');
-	$oUser = User::find($iUserId);
-		
-	if(!$oUser)
-	{
-		return Redirect::route('user-manage')->with('flash_error', 'Related user not found!');
-	}
-	else 
-	{
-		return View::make('user.edit')->with('user', $oUser)
-				->with('menu', array('main'=>'user','side_bar'=>'manage'));
-	}
-}))->before('auth');
-
-Route::post('admin/user/edit', 'UserController@edit')->before('auth');
-
-Route::get('admin/user/delete', array('as' => 'user-delete', 'uses' => 'UserController@delete'))
-->before('auth');
-
+	
 /* 
  * Domain management route handlers
  */
-Route::group(array('prefix'=>'admin','before'=>'auth'), function (){
+Route::group(array('prefix'=>'admin','before'=>'auth'), function ()
+{	
+	Route::get('/index', array('as'=>'admin.index','uses' => 'AdminController@index'))->before('auth');
+	Route::get('/', 'AdminController@index')->before('auth');
+	/**
+	 * Route handler for users
+	 */
+	Route::resource('user', 'UserController');
+	/**
+	 * Route handler for domains
+	 */
 	Route::resource('domain', 'DomainController');
+});
+
+/**
+ * Return 404 error when no route is matched
+ */
+App::missing(function($exception){
+    return '<strong><font style="font-size: 26pt;">404: Page Not Found </font></strong>';
 });

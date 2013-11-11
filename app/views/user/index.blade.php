@@ -29,8 +29,8 @@
 						@endif
 					</td>
 					<td align="center">
-						<a class="user_edit" href="{{ URL::route('user-edit',array('id' => $user->id)) }}" ><img src="{{ asset('/images/dashboard/blank.png') }}" alt="User Edit" title="Edit user"/></a>
-						<a class="user_delete" href="javascript:void(0);" onclick="user.userDelete('{{ URL::route('user-delete')}}',{{ $user->id }});"><img class="user_delete" src="{{asset('images/dashboard/blank.png')}}" alt="User Delete" title="Delete user"/></a>
+						<a class="user_edit" href="{{ URL::route('admin.user.edit',array('user' => $user->id)) }}" ><img src="{{ asset('/images/dashboard/blank.png') }}" alt="User Edit" title="Edit user"/></a>
+						<a class="user_delete" href="javascript:void(0);" onclick="user.userDelete('{{ URL::route('admin.user.destroy', array('user'=>$user->id)) }}',{{ $user->id }});"><img class="user_delete" src="{{asset('images/dashboard/blank.png')}}" alt="User Delete" title="Delete user"/></a>
 					</td>
 				</tr>
 			@endforeach

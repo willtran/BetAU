@@ -12,7 +12,7 @@
 	</div>
 	<div class="content_section">
 	<!-- User create form -->
-	{{ Form::open(array('id'=> 'user_edit_form')) }}
+	{{ Form::open(array('id'=> 'user_edit_form','action' => array('UserController@update', $user->id), 'method' =>'put')) }}
 		<table cellspacing="10">
 			<tr>
 				<td class="form_label"> </td>

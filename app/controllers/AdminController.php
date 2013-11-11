@@ -7,9 +7,4 @@ class AdminController extends BaseController {
 		return View::make('admin.index')
 			->with('menu', array('main'=>'home','side_bar'=>'welcome'));
 	}
-	
-	public function home()
-	{
-		return View::make('admin.home');
-	}
 }

@@ -8,7 +8,7 @@ var user = {
 			if(confirm('Are you sure you want to delete this user?')){
 				$.ajax({
 					url: url,
-					data: 'user_id='+id,
+					type: 'DELETE',
 					success: function(data){
 						$('#user_'+id).remove();
 						$('#page_alert').html('<div id="flash_notice">'+data+'</div>');
