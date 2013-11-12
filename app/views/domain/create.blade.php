@@ -43,15 +43,7 @@
 					{{ Form::label('category_id', 'Category')}}
 				</td>
 				<td class="form_field">
-					{{ Form::select('category_id', array(
-									''	=> '--- Select a category ---',
-									'1' => 'Baseball',
-									'2' => 'Basketball',
-									'3' => 'Boxing',
-									'4' => 'Cricket',
-									'5' => 'Soccer',
-									'6' => 'Horse Racing'
-									), Input::old('template_id')) }}
+					{{ Form::select('category_id', $cat_data, Input::old('category_id')) }}
 				</td>
 			</tr>
 			<!-- Template type -->

@@ -73,16 +73,16 @@ class UserController extends \BaseController {
 	public function store()
 	{
 		// Get user posted data
-                $aUserData = Input::all();                
+        $aUserData = Input::all();                
 
-                // Define validation rules
-                $aRules = array(
-                        'email'        		=> 'required|email|unique:users,email',
-                        'username'        	=> 'required|alpha_dash|unique:users,username',
-                        'password'        	=> 'required|min:6',
-                        'confirm_password'  => 'required|same:password',
-                        'level_id'          => 'required'
-                );
+        // Define validation rules
+        $aRules = array(
+                'email'        		=> 'required|email|unique:users,email',
+                'username'        	=> 'required|alpha_dash|unique:users,username',
+                'password'        	=> 'required|min:6',
+                'confirm_password'  => 'required|same:password',
+                'level_id'          => 'required'
+        );
 		
 		// Process validation checking, redirect to create form if the validation was failed,
 		// otherwise create a new user, 
@@ -90,7 +90,7 @@ class UserController extends \BaseController {
 		
 		if($oValidation->fails())
 		{
-			return Redirect::route('user-create')->withErrors($oValidation)->withInput();
+			return Redirect::route('admin.user.create')->withErrors($oValidation)->withInput();
 		}
 		
 		$aUserData['password'] = Hash::make($aUserData['password']);
@@ -150,11 +150,7 @@ class UserController extends \BaseController {
 		}
 
 		// Get post data
-		$aUserData = array(
-			'email'				=> Input::get('email'),
-			'username' 			=> Input::get('username'),
-			'level_id'			=> Input::get('level_id')
-		);
+		$aUserData = Input::all();
 		
 		// Define validation rules
 		$aRules = array(

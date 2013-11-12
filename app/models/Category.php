@@ -22,5 +22,18 @@ class Category extends Eloquent
 	 * @var string
 	 */
 	protected $guarded = array('id');
-
+	
+	public function getCategorySelect()
+	{
+		$oCategories = $this->orderBy('name', 'ASC')->get();
+		$aSelect = array('0' => 'None'); 
+		if(count($oCategories)>0)
+		{
+			foreach($oCategories as $oCategory)
+			{
+				$aSelect[$oCategory->id] = $oCategory->name;
+			}
+		}
+		return $aSelect;
+	}
 }

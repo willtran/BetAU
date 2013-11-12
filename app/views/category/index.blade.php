@@ -24,7 +24,7 @@
 							<td align="center">{{ $cat->updated_at }}</td>
 							<td align="center">
 								<a class="user_edit" href="{{ URL::route('admin.category.edit',array('category' => $cat->id)) }}" ><img src="{{ asset('/images/dashboard/blank.png') }}" alt="Category Edit" title="Edit category"/></a>
-								<a class="user_delete" href="javascript:void(0);" onclick="user.userDelete('{{ URL::route('admin.category.destroy', array('category'=>$cat->id)) }}',{{ $cat->id }});"><img class="user_delete" src="{{asset('images/dashboard/blank.png')}}" alt="Category Delete" title="Delete category"/></a>
+								<a class="user_delete" href="javascript:void(0);" onclick="category.categoryDelete('{{ URL::route('admin.category.destroy', array('category'=>$cat->id)) }}',{{ $cat->id }});"><img class="user_delete" src="{{asset('images/dashboard/blank.png')}}" alt="Category Delete" title="Delete category"/></a>
 							</td>
 						</tr>
 					@endforeach

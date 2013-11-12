@@ -28,7 +28,13 @@ class DomainController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('domain.create')->with('menu',array('main'=>'domain','side_bar'=>'create'));
+		// Get category select list
+		$oCategory = new Category();
+		$aCatSelect = $oCategory->getCategorySelect();
+		
+		return View::make('domain.create')
+			->with('cat_data', $aCatSelect)
+			->with('menu',array('main'=>'domain','side_bar'=>'create'));
 	}
 
 	/**
@@ -84,8 +90,13 @@ class DomainController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		// Get edit domain info
 		$oDomain = Domain::find($id);
-			
+		
+		// Get category select list
+		$oCategory = new Category();
+		$aCatSelect = $oCategory->getCategorySelect();
+		
 		if(!$oDomain)
 		{
 			return Redirect::route('admin.domain.index')->with('flash_error', 'Selected domain not found!');
@@ -93,6 +104,7 @@ class DomainController extends \BaseController {
 		else 
 		{
 			return View::make('domain.edit')->with('domain', $oDomain)
+					->with('cat_data', $aCatSelect)
 					->with('menu', array('main'=>'domain', 'side_bar'=>'index'));
 		}
 	}
