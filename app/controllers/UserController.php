@@ -62,7 +62,7 @@ class UserController extends \BaseController {
 	public function create()
 	{
 		return View::make('user.create')
-		->with('menu', array('main'=>'user','side_bar'=>'create'));;
+		->with('menu', array('main'=>'user','side_bar'=>'create'));
 	}
 
 	/**

@@ -26,14 +26,23 @@
 						Add New Domain
 					</a>
 				</li>
+			@elseif($menu['main'] == 'category')
+				<li class="domain_menu">
+					<a href="{{URL::route('admin.category.index')}}"  @if($menu['side_bar'] == 'index') class="active" @endif>
+						Manage Categories
+					</a>
+				</li>
+				<li class="domain_menu">
+					<a href="{{URL::route('admin.category.create')}}"  @if($menu['side_bar'] == 'create') class="active" @endif>
+						Add New Category
+					</a>
+				</li>
 			@else
-				<ul id="sidebar_list">
-					<li>
-						<a href="{{URL::route('admin.index')}}" class="active">
-							Announcement
-						</a>
-					</li>
-				</ul>		
+				<li>
+					<a href="{{URL::route('admin.index')}}" class="active">
+						Announcement
+					</a>
+				</li>	
 			@endif
 		</ul>
 	@else

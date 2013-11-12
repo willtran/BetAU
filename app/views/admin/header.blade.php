@@ -10,7 +10,23 @@
 		<ul id="mini_menu">
 			<li id="user_setting_block">
 					@if(Auth::check())
-						<a href="#">
+						<a href="{{ URL::route('admin.index') }}" @if($menu['main']=='home') class="active" @endif>
+							<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="home_icon"/>
+							Home
+						</a>
+						<a href="{{ URL::route('admin.user.create')}}" @if($menu['main']=='user'&&$menu['side_bar']=='create') class="active" @endif>
+							<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="add_user_icon"/>
+							Users
+						</a>
+						<a href="{{ URL::route('admin.domain.index')}}" @if($menu['main']=='domain') class="active" @endif>
+							<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="domain_icon"/>
+							Domains
+						</a>
+						<a href="{{ URL::route('admin.category.index')}}" @if($menu['main']=='category') class="active" @endif>
+							<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="category_icon"/>
+							Categories
+						</a>
+						<a href="#" id="user_setting">
 							<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="user_setting_icon"/>
 							{{ ucfirst(Auth::user()->username) }}
 							<img src ="{{asset('/images/dashboard/arrow_down.png')}}" alt="" class="arrow_down"/>
@@ -34,23 +50,4 @@
 				</li>
 		</ul>
 	</div>
-	<ul id="dropdown_navigator">
-		@if(Auth::check())
-			<li>{{ HTML::linkRoute('admin.index','Home',array(),array('class'=>'first')) }}</li>
-			<li><a href="javascrip:void(0);" @if($menu['main']=='user') class="active" @endif >Users</a>
-				<ul class="sub_navigator">
-					<li>{{ HTML::linkRoute('admin.user.index','Manage Users') }}</li>
-					<li>{{ HTML::linkRoute('admin.user.create','Create New User') }}</li>
-				</ul>
-			</li>
-			<li><a href="javascrip:void(0);" class="last">Domains</a>
-				<ul class="sub_navigator">
-					<li>{{ HTML::linkRoute('admin.domain.index','Manage Domains') }}</li>
-					<li>{{ HTML::linkRoute('admin.domain.create','Add NewDomain') }}</li>
-				</ul>
-			</li>
-		@else
-			<li>{{ HTML::linkRoute('login','Welcome',array(),array('class'=>'first')) }}</li>
-		@endif
-	</ul>
 </div>

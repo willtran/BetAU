@@ -9,7 +9,11 @@ class CategoryController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		// Get all categories in the system
+		$aCategories = Category::all();
+		
+		return View::make('category.index')->with('categories', $aCategories)
+		->with('menu', array('main'=>'category','side_bar'=>'index'));
 	}
 
 	/**
@@ -19,7 +23,8 @@ class CategoryController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('category.create')
+		->with('menu', array('main'=>'category','side_bar'=>'create'));
 	}
 
 	/**

@@ -131,6 +131,9 @@
 				<td class="form_label"></td>
 				<td class="form_field">
 					{{ Form::submit('Edit Domain')}}
+					{{ Form::button('Cancel', array(
+							'onclick' => "document.location.href='".URL::previous()."'" )
+						)}}
 				</td>
 			</tr>
 		</table>

@@ -39,6 +39,10 @@ Route::group(array('prefix'=>'admin','before'=>'auth'), function ()
 	 * Route handler for domains
 	 */
 	Route::resource('domain', 'DomainController');
+	/**
+	 * Route handler for category
+	 */
+	Route::resource('category', 'CategoryController');
 });
 
 /**
