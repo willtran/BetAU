@@ -3,12 +3,14 @@
  */
 body
 {
+	margin: 0;
+	padding: 0;
 	font-size: small;
 	font-family: arial,sans-serif;
 }
 input
 {
-	height: 30px;
+	height: 34px;
 	padding: 5px;
 	border-radius: 5px;
 	border: 1px solid #CCCCCC;
@@ -360,17 +362,19 @@ a.user_delete:hover img{
 	text-align: center;
 	background: url('../images/dashboard/error.png') no-repeat;
 	padding: 10px;
-	margin-left: 20px;
+	margin: 0 auto;
 	color: #FFFFFF;
 	height: 40px;
+	width: 879px;
 }
 #flash_notice
 {
 	text-align: center;
 	height: 40px;
+	width: 879px;
 	background: url('../images/dashboard/notice.png') no-repeat;
 	padding: 10px;
-	margin-left: 20px;
+	margin: 0 auto;
 	color: #FFFFFF;
 }
 /**
@@ -628,11 +632,15 @@ a.domain_build_link:hover
 .content_section table tr td.form_label
 {
 	vertical-align: text-top;
-	padding-top: 7px;
+	padding-top: 9px;
 	font-size: small;
 	width: 40%;
 	text-align: right;
 	font-weight: bold;
+}
+.content_section table tr td.part_label
+{
+	color: #ffa303;
 }
 .content_section table tr td small
 {

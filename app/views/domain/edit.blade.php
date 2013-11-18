@@ -55,6 +55,7 @@
 			<tr>
 				<td class="form_label">
 					{{ Form::label('category_id', 'Category')}}
+					<span class="required">(*)</span>
 				</td>
 				<td class="form_field">
 					{{ Form::select('category_id', $cat_data, $domain->category_id) }}
@@ -64,6 +65,7 @@
 			<tr>
 				<td class="form_label">
 					{{ Form::label('template_id', 'Template')}}
+					<span class="required">(*)</span>
 				</td>
 				<td class="form_field">
 					{{ Form::select('template_id', array(
@@ -73,6 +75,20 @@
 									'3' => 'Template C',
 									'4' => 'Template D'
 									), $domain->template_id) }}
+				</td>
+			</tr>
+			<!-- Article Column -->
+			<tr>
+				<td class="form_label">
+					{{ Form::label('article_columns', 'Article Column(s)')}}
+					<span class="required">(*)</span>
+				</td>
+				<td class="form_field">
+					{{ Form::select('article_columns', array(
+									''	=> '--- Select an amount ---',
+									'1' => '1 Column',
+									'2' => '2 Columns'
+									), Input::old('article_column')) }}
 				</td>
 			</tr>
 			<!-- Heading field -->

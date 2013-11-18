@@ -26,6 +26,7 @@
 						Add New Domain
 					</a>
 				</li>
+			<!-- Category menu site bar -->
 			@elseif($menu['main'] == 'category')
 				<li class="domain_menu">
 					<a href="{{URL::route('admin.category.index')}}"  @if($menu['side_bar'] == 'index') class="active" @endif>
@@ -37,6 +38,18 @@
 						Add New Category
 					</a>
 				</li>
+			<!-- Layout menu site bar -->
+			@elseif($menu['main'] == 'layout')
+				<li class="domain_menu">
+					<a href="{{URL::route('admin.layout.index')}}"  @if($menu['side_bar'] == 'index') class="active" @endif>
+						Manage Layouts
+					</a>
+				</li>
+				<li class="domain_menu">
+					<a href="{{URL::route('admin.layout.create')}}"  @if($menu['side_bar'] == 'create') class="active" @endif>
+						Add New Layout
+					</a>
+				</li>
 			@else
 				<li>
 					<a href="{{URL::route('admin.index')}}" class="active">
@@ -44,6 +57,7 @@
 					</a>
 				</li>	
 			@endif
+			
 		</ul>
 	@else
 		<ul id="sidebar_list">

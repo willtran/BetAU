@@ -1,0 +1,60 @@
+.footer
+{
+	width: 980px;
+	height: 140px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	background: url('../../../images/template/default/footer.png') repeat-x;
+	position: relative;
+	clear: both;
+}
+/** left side - logo and copyright **/
+.footer .left
+{
+	width: 450px;
+    float: left;
+    margin-top: 5px;
+}
+.footer .site_logo a
+{
+	display: block;
+	padding: 12px;
+	margin: 10px 0 0 20px;
+}
+.footer .copyright
+{
+	margin: 0 0 5px 15px;
+	color: #767676;
+	font-size: 11px;
+}
+.footer .copyright p
+{
+	margin: 3px;
+}
+.footer img
+{
+	height: 40px;
+}
+/** right side - **/
+.footer .right
+{
+	width: 450px;
+    float: right;
+    margin-top: 5px;
+}
+.footer .contact_privacy
+{
+	margin: 80px 30px 10px 0;
+	float: right;
+	color: #767676;
+}
+.footer .contact_privacy a
+{
+	color: #767676;
+	font-size: 11px;
+	text-decoration: none;
+}
+.footer .contact_privacy a:hover
+{
+	color: #ffa303;
+}

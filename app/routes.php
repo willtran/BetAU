@@ -11,7 +11,11 @@
 |
 */
 
-/*
+/** Front-End route handlers**/
+Route::get('/', 'IndexController@index');
+Route::get('/{article}', 'IndexController@show');
+
+;/*
  * 	Log-in route handlers
  */
 Route::get('admin/login', array('as' => 'login', function (){
@@ -30,10 +34,9 @@ Route::get('admin/logout', array(
 Route::group(array('prefix'=>'admin','before'=>'auth'), function ()
 {	
 	Route::get('/index', array('as'=>'admin.index','uses' => 'AdminController@index'))->before('auth');
-	Route::get('/', 'AdminController@index')->before('auth');
-	/**
-	 * Route handler for users
-	 */
+	 /**
+	  *  Route handler for users
+	  */
 	Route::resource('user', 'UserController');
 	/**
 	 * Route handler for domains
@@ -43,11 +46,15 @@ Route::group(array('prefix'=>'admin','before'=>'auth'), function ()
 	 * Route handler for category
 	 */
 	Route::resource('category', 'CategoryController');
+	/**
+	 * Route handler for layout
+	 */
+	Route::resource('layout', 'LayoutController');
 });
 
 /**
  * Return 404 error when no route is matched
  */
-App::missing(function($exception){
-    return '<strong><font style="font-size: 26pt;">404: Page Not Found </font></strong>';
-});
+// App::missing(function($exception){
+    // return '<strong><font style="font-size: 26pt;">404: Page Not Found </font></strong>';
+// });
