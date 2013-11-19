@@ -14,7 +14,7 @@ class Category extends Eloquent
 	 * 
 	 * @var string
 	 */
-	protected $fillable = array('name');
+	protected $fillable = array('name, layout_id');
 	
 	/**
 	 * The database fields that cannot be mass-assignment
