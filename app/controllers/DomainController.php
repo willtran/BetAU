@@ -52,7 +52,9 @@ class DomainController extends \BaseController {
 		$aRules = array(
 			'name' 			=> 'required|unique:domains,name',
 			'analytic_id'	=> 'alpha_dash',
-			'title'			=> 'required'
+			'heading'		=> 'required',
+			'title'			=> 'required',
+			'description'	=> 'required',
 		);
 		
 		// Process validation checking, redirect to create form if the validation was failed,
@@ -133,7 +135,9 @@ class DomainController extends \BaseController {
 		$aRules = array(
 			'name' 			=> 'required',
 			'analytic_id'	=> 'alpha_dash',
-			'title'			=> 'required'
+			'heading'		=> 'required',
+			'title'			=> 'required',
+			'description'	=> 'required',
 		);
 		
 		if($aDomainData['name'] != $oDomain->name)

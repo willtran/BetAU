@@ -94,6 +94,7 @@
 			<tr>
 				<td class="form_label">
 					{{ Form::label('heading', 'Page Heading')}}
+					<span class="required">(*)</span>
 				</td>
 				<td class="form_field">
 					{{ Form::text('heading', $domain->heading) }}
@@ -128,6 +129,7 @@
 			<tr>
 				<td class="form_label">
 					{{ Form::label('description', 'Page Description')}}
+					<span class="required">(*)</span>
 				</td>
 				<td class="form_field">
 					{{ Form::textarea('description', $domain->description) }}

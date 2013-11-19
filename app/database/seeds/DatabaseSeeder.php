@@ -20,5 +20,9 @@ class DatabaseSeeder extends Seeder {
 		$this->call('CategoryTableSeeder');
 		
 		$this->command->info("Category table seeded!");
+		
+		$this->call('LayoutTableSeeder');
+		
+		$this->command->info("Layout table seeded!");
 	}
 }

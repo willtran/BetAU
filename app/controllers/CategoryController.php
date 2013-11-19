@@ -10,7 +10,10 @@ class CategoryController extends \BaseController {
 	public function index()
 	{
 		// Get all categories in the system
-		$aCategories = Category::all();
+		$aCategories = DB::table('categories')
+						->join('layouts', 'categories.layout_id', '=', 'layouts.id')
+						->orderBY('categories.name', 'ASC')
+						->get(array('categories.*', 'layouts.name as layout_name'));
 		
 		return View::make('category.index')->with('categories', $aCategories)
 		->with('menu', array('main'=>'category','side_bar'=>'index'));

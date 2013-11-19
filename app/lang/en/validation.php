@@ -99,9 +99,12 @@ return array(
 		'username'			=> 'Username',
 		'password'			=> 'Password',
 		'confirm_password'	=> 'Confirm Password',
-		
+
+		'heading'			=> 'Domain Heading',
+		'description'		=> 'Domain Description',
+		 		
 		'layout_id'			=> 'Layout',
-		
+
 		'header_background'			=> 'Header Background Image',
 		'header_text_color'			=> 'Header Text Color',
 		'header_hover_color'		=> 'Header Text Hover Color',

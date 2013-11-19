@@ -7,12 +7,12 @@
 		Layouts Listing
 	</div>
 	<div class="content_section table_center">
-		<table id="user_management_table">
+		<table id="management_table">
 			<thead>
 				<tr>
-					<td width="15%" align="center" style="border-top-left-radius: 5px;">ID</td>
-					<td width="30%" align="center">Layout Name</td>
-					<td width="30%" align="center">Layout Label</td>
+					<td width="10%" align="center" style="border-top-left-radius: 5px;">ID</td>
+					<td width="25%" align="center">Layout Name</td>
+					<td width="25%" align="center">Layout Label</td>
 					<td width="25%" align="center" style="border-top-right-radius: 5px;">Action</td>
 				</tr>
 			</thead>

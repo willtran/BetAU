@@ -14,7 +14,7 @@
 							<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="home_icon"/>
 							Home
 						</a>
-						<a href="{{ URL::route('admin.user.create')}}" @if($menu['main']=='user'&&$menu['side_bar']=='create') class="active" @endif>
+						<a href="{{ URL::route('admin.user.index')}}" @if($menu['main']=='user'&&$menu['side_bar']=='index') class="active" @endif>
 							<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="add_user_icon"/>
 							Users
 						</a>
@@ -27,7 +27,7 @@
 							Categories
 						</a>
 						<a href="{{ URL::route('admin.layout.index')}}" @if($menu['main']=='layout') class="active" @endif>
-							<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="category_icon"/>
+							<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="layout_icon"/>
 							Layouts
 						</a>
 						<a href="#" id="user_setting">

@@ -160,7 +160,11 @@ button:hover
 }
 #user_setting_block img.category_icon
 {
-	background: url("../images/dashboard/main_menu.png") no-repeat -136px 0px;
+	background: url("../images/dashboard/main_menu.png") no-repeat -195px 2px;
+}
+#user_setting_block img.layout_icon
+{
+	background: url("../images/dashboard/main_menu.png") no-repeat -300px 2px;
 }
 #user_setting_block a:hover img.home_icon,#user_setting_block a.active img.home_icon
 {
@@ -176,7 +180,11 @@ button:hover
 }
 #user_setting_block a:hover img.category_icon,#user_setting_block a.active img.category_icon
 {
-	background: url("../images/dashboard/main_menu.png") no-repeat -136px -29px;
+	background: url("../images/dashboard/main_menu.png") no-repeat -195px -29px;
+}
+#user_setting_block a:hover img.layout_icon,#user_setting_block a.active img.layout_icon
+{
+	background: url("../images/dashboard/main_menu.png") no-repeat -300px -29px;
 }
 #user_setting_block img.user_setting_icon
 {
@@ -292,36 +300,32 @@ button:hover
 /**
  * 	User management, category management content style
  */
-#user_management_table
+#management_table
 {
-	margin: 22px;
-	border-spacing: 0;
-	width: 95%;
-}
-#category_management_table
-{
-	margin: 22px 0 22px 150px;
+	margin: 22px auto;
 	border-spacing: 0;
 	width: 70%;
 }
-#user_management_table thead, #category_management_table thead 
+#management_table thead
 {
 	font-weight: bold;
 	color: #f6f7f8;
 	background-color: #1abc9c;
 }
 
-#user_management_table thead tr, #category_management_table thead tr
+#management_table thead tr
 {
 	height: 45px;
 	margin-bottom: 5px;
 }
-#user_management_table tbody tr, #category_management_table tbody tr
+#management_table tbody tr
 {
 	height: 30px;
 }
-#user_management_table tbody tr td, #category_management_table tbody tr td
+#management_table tbody tr td
 {
+	color: #575757;
+	font-weight: bold;
 	font-size: smaller;
 	border: 1px solid #bdc2ca;
 }

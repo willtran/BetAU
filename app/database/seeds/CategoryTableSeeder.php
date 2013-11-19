@@ -12,7 +12,8 @@ class CategoryTableSeeder extends Seeder
 		foreach($aInputs as $sInput)
 		{
 			Category::create(array(
-				'name'	=> $sInput
+				'name'		=> $sInput,
+				'layout_id'	=> 1
 			));
 		}
 	}
