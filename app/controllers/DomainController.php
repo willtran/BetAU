@@ -155,6 +155,7 @@ class DomainController extends \BaseController {
 		$oDomain->is_active = $aDomainData['is_active'];
 		$oDomain->category_id = $aDomainData['category_id'];
 		$oDomain->template_id = $aDomainData['template_id'];
+		$oDomain->article_columns = $aDomainData['article_columns'];
 		$oDomain->heading = $aDomainData['heading'];
 		$oDomain->title = $aDomainData['title'];
 		$oDomain->keyword = $aDomainData['keyword'];

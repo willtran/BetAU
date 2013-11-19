@@ -119,7 +119,7 @@ class Layout extends Eloquent
 		}
 		else
 		{
-			copy($sCoreLayout."/images/footer.png", $sImagePath."/bookmarker_background.png");
+			copy($sCoreLayout."/images/bookmarker_background.png", $sImagePath."/bookmarker_background.png");
 		}
 		// Article background
 		if($aLayoutData['article_background'])
@@ -129,7 +129,7 @@ class Layout extends Eloquent
 		}
 		else
 		{
-			copy($sCoreLayout."/images/footer.png", $sImagePath."/article_background.png");
+			copy($sCoreLayout."/images/article_background.png", $sImagePath."/article_background.png");
 		}
 		
 		// Image Background

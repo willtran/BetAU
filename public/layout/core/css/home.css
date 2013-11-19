@@ -133,23 +133,23 @@ body
 }
 .claim_1
 {
-	background: url("../../core/images/template/default/claim_1.png") no-repeat;
+	background: url("../../core/images/claim_1.png") no-repeat;
 }
 .claim_2
 {
-	background: url("../../core/images/template/default/claim_2.png") no-repeat;
+	background: url("../../core/images/claim_2.png") no-repeat;
 }
 .claim_3
 {
-	background: url("../../core/images/template/default/claim_3.png") no-repeat;
+	background: url("../../core/images/claim_3.png") no-repeat;
 }
 .claim_4
 {
-	background: url("../../core/images/template/default/claim_4.png") no-repeat;
+	background: url("../../core/images/claim_4.png") no-repeat;
 }
 .claim_5
 {
-	background: url("../../core/images/template/default/claim_5.png") no-repeat;
+	background: url("../../core/images/claim_5.png") no-repeat;
 }
 /** booker item featured **/
 li.featured .booker_logo img
@@ -158,7 +158,7 @@ li.featured .booker_logo img
 }
 li.featured .claim_3
 {
-	background: url("../../core/images/template/default/claim_3_featured.png") no-repeat;
+	background: url("../../core/images/claim_3_featured.png") no-repeat;
 }
 li.featured .booker_bonus
 {
@@ -200,6 +200,7 @@ li.featured .claim_submit
 .article table
 {
 	padding-top: 20px;
+	margin: auto;
 }
 .article .two_column
 {
@@ -243,20 +244,24 @@ li.featured .claim_submit
 {
 	width:144px;
 	margin: 10px;
-	background: url('../../core/images/template/default/viewmore.png') no-repeat;
+	background: url('../../core/images/viewmore.png') no-repeat;
 	height: 30px;
 }
 .article .viewmore:hover
 {
-	background: url('../../core/images/template/default/viewmore_hover.png') no-repeat;
+	background: url('../../core/images/viewmore_hover.png') no-repeat;
 }
 .article .viewmore a
 {
 	display: block;
 }
+.article .one_column
+{
+	width: 750px;
+}
 .article .one_column .article_image img
 {
-	width: 930px;
+	width: 750px;
 	height:112px;
 	margin: 10px auto;
 	display: block;

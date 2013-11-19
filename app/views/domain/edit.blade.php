@@ -70,10 +70,9 @@
 				<td class="form_field">
 					{{ Form::select('template_id', array(
 									'0'	=> '--- Select a template ---',
-									'1' => 'Template A',
-									'2' => 'Template B',
-									'3' => 'Template C',
-									'4' => 'Template D'
+									'3' => '3 Bookmarkers',
+									'4' => '4 Bookmarkers',
+									'5' => '5 Bookmarkers'
 									), $domain->template_id) }}
 				</td>
 			</tr>
@@ -88,7 +87,7 @@
 									''	=> '--- Select an amount ---',
 									'1' => '1 Column',
 									'2' => '2 Columns'
-									), Input::old('article_column')) }}
+									), $domain->article_columns) }}
 				</td>
 			</tr>
 			<!-- Heading field -->

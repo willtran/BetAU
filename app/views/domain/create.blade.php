@@ -55,11 +55,10 @@
 				</td>
 				<td class="form_field">
 					{{ Form::select('template_id', array(
-									''	=> '--- Select a template ---',
-									'1' => 'Template A',
-									'2' => 'Template B',
-									'3' => 'Template C',
-									'4' => 'Template D'
+									'0'	=> '--- Select a template ---',
+									'3' => '3 Bookmarkers',
+									'4' => '4 Bookmarkers',
+									'5' => '5 Bookmarkers'
 									), Input::old('template_id')) }}
 				</td>
 			</tr>

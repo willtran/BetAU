@@ -14,7 +14,7 @@ class Domain extends Eloquent
 	 * 
 	 * @var string
 	 */
-	protected $fillable = array('name', 'owner_id', 'analytic_id', 'is_active','category_id', 'template_id','heading', 'title', 'keyword', 'description');
+	protected $fillable = array('name', 'owner_id', 'analytic_id', 'is_active','category_id', 'template_id', 'is_customized', 'article_columns', 'heading', 'title', 'keyword', 'description');
 	
 	/**
 	 * The database fields that cannot be mass-assignment
