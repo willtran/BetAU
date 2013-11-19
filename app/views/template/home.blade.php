@@ -85,7 +85,94 @@
 				</div>
 			</div>
 			<div class="article">
-				<?php /**TODO place article name here **/ ?>
+				<?php $column = 2;?>
+				<table cellspacing="20">
+					@if($column == 2)
+					<tr>
+						<td class="two_column">
+							<div class="article_title">
+								<a href="#">ACT Horse Racing</a>
+							</div>
+							<div class="article_image">
+								<img src="{{ asset('/images/template/default/article_image.png') }}"/>
+							</div>
+							<div class="article_description">
+								Placing bets on ACT horse racing is practically tradition with more and more males – and females – getting into the spirit of the game. The fact that there are so many methods of placing a bet in this game only makes it more competitive.
+							</div>
+							<div class="article_content">
+								ACT horse racing Types
+								The most common type is through the Straight Bet or Single where the punter simply places their money on the horse that they believe will win. There’s also the “Place” where the punter bets on their chosen second places and a “Show” for the third place. There’s also a variation of this where the punter can collect if their chosen horse places anywhere within the top three winners.
+								For the more competitive in ACT horse racing, there’s also the Combination Bet which allows the punter to choose a maximum of four horses to win in a specific order. Some betting odds like the Pick 3 requires that the player choose the winner for three different races that are played consecutively. There’s even a Pick 6 which...
+							</div>
+							<div class="viewmore">
+								<a href="#"><img src="{{ asset('/images/template/default/blank.png')}}"/></a>
+							</div>
+						</td>
+						<td class="two_column">
+							<div class="article_title">
+								<a href="#">ACT Horse Racing</a>
+							</div>
+							<div class="article_image">
+								<img src="{{ asset('/images/template/default/article_image.png') }}"/>
+							</div>
+							<div class="article_description">
+								Placing bets on ACT horse racing is practically tradition with more and more males – and females – getting into the spirit of the game. The fact that there are so many methods of placing a bet in this game only makes it more competitive.
+							</div>
+							<div class="article_content">
+								ACT horse racing Types
+								The most common type is through the Straight Bet or Single where the punter simply places their money on the horse that they believe will win. There’s also the “Place” where the punter bets on their chosen second places and a “Show” for the third place. There’s also a variation of this where the punter can collect if their chosen horse places anywhere within the top three winners.
+								For the more competitive in ACT horse racing, there’s also the Combination Bet which allows the punter to choose a maximum of four horses to win in a specific order. Some betting odds like the Pick 3 requires that the player choose the winner for three different races that are played consecutively. There’s even a Pick 6 which...
+							</div>
+							<div class="viewmore">
+								<a href="#"><img src="{{ asset('/images/template/default/blank.png')}}"/></a>
+							</div>
+						</td>
+					</tr>
+					@else
+					<tr>
+						<td class="one_column">
+							<div class="article_title">
+								<a href="#">ACT Horse Racing</a>
+							</div>
+							<div class="article_image">
+								<img src="{{ asset('/images/template/default/article_image.png') }}"/>
+							</div>
+							<div class="article_description">
+								Placing bets on ACT horse racing is practically tradition with more and more males – and females – getting into the spirit of the game. The fact that there are so many methods of placing a bet in this game only makes it more competitive.
+							</div>
+							<div class="article_content">
+								ACT horse racing Types
+								The most common type is through the Straight Bet or Single where the punter simply places their money on the horse that they believe will win. There’s also the “Place” where the punter bets on their chosen second places and a “Show” for the third place. There’s also a variation of this where the punter can collect if their chosen horse places anywhere within the top three winners.
+								For the more competitive in ACT horse racing, there’s also the Combination Bet which allows the punter to choose a maximum of four horses to win in a specific order. Some betting odds like the Pick 3 requires that the player choose the winner for three different races that are played consecutively. There’s even a Pick 6 which...
+							</div>
+							<div class="viewmore">
+								<a href="#"><img src="{{ asset('/images/template/default/blank.png')}}"/></a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="one_column">
+							<div class="article_title">
+								<a href="#">ACT Horse Racing</a>
+							</div>
+							<div class="article_image">
+								<img src="{{ asset('/images/template/default/article_image.png') }}"/>
+							</div>
+							<div class="article_description">
+								Placing bets on ACT horse racing is practically tradition with more and more males – and females – getting into the spirit of the game. The fact that there are so many methods of placing a bet in this game only makes it more competitive.
+							</div>
+							<div class="article_content">
+								ACT horse racing Types
+								The most common type is through the Straight Bet or Single where the punter simply places their money on the horse that they believe will win. There’s also the “Place” where the punter bets on their chosen second places and a “Show” for the third place. There’s also a variation of this where the punter can collect if their chosen horse places anywhere within the top three winners.
+								For the more competitive in ACT horse racing, there’s also the Combination Bet which allows the punter to choose a maximum of four horses to win in a specific order. Some betting odds like the Pick 3 requires that the player choose the winner for three different races that are played consecutively. There’s even a Pick 6 which...
+							</div>
+							<div class="viewmore">
+								<a href="#"><img src="{{ asset('/images/template/default/blank.png')}}"/></a>
+							</div>
+						</td>
+					</tr>
+					@endif
+				</table>
 			</div>
 			<div class="next_site"></div>
 		</div>

@@ -98,7 +98,21 @@ return array(
 		'level_id'			=> 'User Level',
 		'username'			=> 'Username',
 		'password'			=> 'Password',
-		'confirm_password'	=> 'Confirm Password'
+		'confirm_password'	=> 'Confirm Password',
+		
+		'layout_id'			=> 'Layout',
+		
+		'header_background'			=> 'Header Background Image',
+		'header_text_color'			=> 'Header Text Color',
+		'header_hover_color'		=> 'Header Text Hover Color',
+		'footer_background'			=> 'Footer Background Image',
+		'footer_text_color'			=> 'Footer Text Color',
+		'footer_hover_color'		=> 'Footer Text Hover Color',
+		'bookmarker_background'		=> 'Bookmarker Background Image',
+		'bookmarker_text_color'		=> 'Bookmarker Text Color',
+		'article_background'		=> 'Article Background Image',
+		'article_title_color'		=> 'Article Title Color',
+		'article_description_color'	=> 'Article Description Color',
 	),
 
 );

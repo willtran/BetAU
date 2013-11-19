@@ -19,7 +19,7 @@ body
 	overflow: hidden;
 	width: 100%;
 	height: 430px;
-	background: url('../../../images/template/default/bookmarker_background.png') no-repeat;
+	background: url('<bookmarker_background>') no-repeat;
 }
 .bookmarker_block #heading
 {
@@ -27,7 +27,7 @@ body
 	font-weight: lighter;
 	text-shadow:  2px 2px #3e3e3e;
 	margin: 25px 0 5px 0;
-	color: #FFFFFF;
+	color: <bookmarker_text_color>;
 	text-align: center;
 	font-style: italic;
 }
@@ -37,7 +37,7 @@ body
 	text-shadow:  1px 1px #3e3e3e;
 	width: 800px;
 	margin: auto;
-	color: #FFFFFF;
+	color: <bookmarker_text_color>;
 	font-size: 0.8em;
 }
 /** booker list **/
@@ -133,23 +133,23 @@ body
 }
 .claim_1
 {
-	background: url("../../../images/template/default/claim_1.png") no-repeat;
+	background: url("../../core/images/template/default/claim_1.png") no-repeat;
 }
 .claim_2
 {
-	background: url("../../../images/template/default/claim_2.png") no-repeat;
+	background: url("../../core/images/template/default/claim_2.png") no-repeat;
 }
 .claim_3
 {
-	background: url("../../../images/template/default/claim_3.png") no-repeat;
+	background: url("../../core/images/template/default/claim_3.png") no-repeat;
 }
 .claim_4
 {
-	background: url("../../../images/template/default/claim_4.png") no-repeat;
+	background: url("../../core/images/template/default/claim_4.png") no-repeat;
 }
 .claim_5
 {
-	background: url("../../../images/template/default/claim_5.png") no-repeat;
+	background: url("../../core/images/template/default/claim_5.png") no-repeat;
 }
 /** booker item featured **/
 li.featured .booker_logo img
@@ -158,7 +158,7 @@ li.featured .booker_logo img
 }
 li.featured .claim_3
 {
-	background: url("../../../images/template/default/claim_3_featured.png") no-repeat;
+	background: url("../../core/images/template/default/claim_3_featured.png") no-repeat;
 }
 li.featured .booker_bonus
 {
@@ -193,7 +193,7 @@ li.featured .claim_submit
 /* article */
 .content_wrapper .article
 {
-	background: url('../../../images/template/default/article_background.png') repeat-y;
+	background: url('<article_background>') repeat-y;
 	width: 100%;
 	height: auto;
 }
@@ -211,18 +211,18 @@ li.featured .claim_submit
 {
 	font-weight: bolder;
 	font-size: 22px;
-	color: #001e3a;
+	color: <article_title_color>;
 	margin: 10px;
 	text-decoration: none;
 }
 .article .article_title a:hover
 {
-	color: #ffa303;
+	color: <article_title_hover_color>;
 }
 .article .article_description
 {
 	font-size: 14px;
-	color:#004b20;
+	color:<article_description_color>;
 	text-align: justify;
 	font-weight: bold;
 	margin-bottom: 15px;
@@ -243,12 +243,12 @@ li.featured .claim_submit
 {
 	width:144px;
 	margin: 10px;
-	background: url('../../../images/template/default/viewmore.png') no-repeat;
+	background: url('../../core/images/template/default/viewmore.png') no-repeat;
 	height: 30px;
 }
 .article .viewmore:hover
 {
-	background: url('../../../images/template/default/viewmore_hover.png') no-repeat;
+	background: url('../../core/images/template/default/viewmore_hover.png') no-repeat;
 }
 .article .viewmore a
 {

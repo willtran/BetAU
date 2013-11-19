@@ -9,7 +9,9 @@ class LayoutController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$oLayout = Layout::all();
+		return View::make('layout.index')->with('layouts', $oLayout)
+			->with('menu', array('main' => 'layout', 'side_bar' => 'index'));
 	}
 
 	/**
@@ -30,7 +32,42 @@ class LayoutController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$aLayoutData = Input::all();
+		$aLayoutData['name'] = str_replace(array("!","@","#","$","%","^","&","*","+","/"),"", $aLayoutData['name']);
+		
+		// Define validation rules
+		$aRules = array(
+			'name' 						=> 'required|unique:layouts,name',
+			'header_background'			=> 'mimes:png',
+			'header_text_color'			=> 'alpha_num|min:6|max:6',
+			'header_hover_color'		=> 'alpha_num|min:6|max:6',
+			'footer_background'			=> 'mimes:png',
+			'footer_text_color'			=> 'alpha_num|min:6|max:6',
+			'footer_hover_color'		=> 'alpha_num|min:6|max:6',
+			'bookmarker_background'		=> 'mimes:png',
+			'bookmarker_text_color'		=> 'alpha_num|min:6|max:6',
+			'article_background'		=> 'mimes:png',
+			'article_title_color'		=> 'alpha_num|min:6|max:6',
+			'article_title_hover_color'	=> 'alpha_num|min:6|max:6',
+			'article_description_color'	=> 'alpha_num|min:6|max:6',
+		);
+		
+		// Process validation checking, redirect to create form if the validation was failed,
+		// otherwise create a new domain
+		$oValidation = Validator::make($aLayoutData, $aRules);
+		
+		if($oValidation->fails())
+		{
+			return Redirect::route('admin.layout.create')->withErrors($oValidation)->withInput();
+		}
+		$aLayoutData['label'] = strtolower(str_replace(array("-", " "),"_", $aLayoutData['name']));
+		$oLayout = new Layout($aLayoutData);
+		$oLayout->save();
+		
+		/** Process add new template css and image **/
+		$oLayout->createLayoutFiles($aLayoutData);
+		
+		return Redirect::route('admin.layout.index')->with('flash_notice', 'Layout <strong>'.$aLayoutData['name'].'</strong> had been added.');;
 	}
 
 	/**
@@ -75,6 +112,5 @@ class LayoutController extends \BaseController {
 	public function destroy($id)
 	{
 		//
-	}
-
+	}	
 }

@@ -10,10 +10,10 @@
 			<table id="category_management_table">
 				<thead>
 					<tr>
-						<td width="5%" align="center" style="border-top-left-radius: 5px;">ID</td>
-						<td width="35%" align="center">Domain Name</td>
-						<td width="30%" align="center">Updated</td>						
-						<td width="30%" align="center" style="border-top-right-radius: 5px;">Action</td>
+						<td width="10%" align="center" style="border-top-left-radius: 5px;">ID</td>
+						<td width="25%" align="center">Category Name</td>
+						<td width="20%" align="center">Updated</td>						
+						<td width="20%" align="center" style="border-top-right-radius: 5px;">Action</td>
 					</tr>
 				</thead>
 				<tbody>

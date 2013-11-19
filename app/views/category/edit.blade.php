@@ -24,6 +24,16 @@
 					{{ Form::text('name', $category->name )}}
 				</td>
 			</tr>
+			<!-- Layout field -->
+			<tr>
+				<td class="form_label">
+					{{ Form::label('layout_id','Layout') }}
+					<span class="required">(*)</span>
+				</td>
+				<td class="form_field">
+					{{ Form::select('layout_id', $layout_data, $category->layout_id) }}
+				</td>
+			</tr>
 			<!-- Sumbit button -->
 			<tr>
 				<td></td>

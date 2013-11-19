@@ -24,7 +24,7 @@ class UpdateDomainTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('domainsw', function($table)
+		Schema::table('domains', function($table)
 		{
 		    $table->dropColumn('article_columns');
 		});

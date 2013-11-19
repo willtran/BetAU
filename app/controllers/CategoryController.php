@@ -23,7 +23,12 @@ class CategoryController extends \BaseController {
 	 */
 	public function create()
 	{
+		// Get category select list
+		$oLayout = new Layout();
+		$aLayoutSelect = $oLayout->getLayoutSelect();
+		
 		return View::make('category.create')
+		->with('layout_data', $aLayoutSelect)
 		->with('menu', array('main'=>'category','side_bar'=>'create'));
 	}
 
@@ -38,7 +43,8 @@ class CategoryController extends \BaseController {
 
         // Define validation rules
         $aRules = array(
-        	'name'  => 'required|unique:categories,name'
+        	'name'  	=> 'required|unique:categories,name',
+        	'layout_id'	=> 'required'
         );
 		
 		// Process validation checking, redirect to create form if the validation was failed,
@@ -77,6 +83,9 @@ class CategoryController extends \BaseController {
 	{
 		$oCategory = Category::find($id);
 		
+		// Get category select list
+		$oLayout = new Layout();
+		$aLayoutSelect = $oLayout->getLayoutSelect();
 		if(!$oCategory)
 		{
 			return Redirect::route('admin.category.index')->with('flash_error', 'The category not found!');
@@ -84,6 +93,7 @@ class CategoryController extends \BaseController {
 		else 
 		{
 			return View::make('category.edit')->with('category', $oCategory)
+					->with('layout_data', $aLayoutSelect)
 					->with('menu', array('main'=>'category','side_bar'=>'index'));
 		}
 	}
@@ -109,7 +119,7 @@ class CategoryController extends \BaseController {
 		$aCategoryData = Input::all();
 		
 		// Define validation rules
-		$aRules = array();
+		$aRules = array('layout_id'	=>	'required');
 		if($aCategoryData['name'] != $oCategory->name)
 		{
 			$aRules['name'] =  'required|unique:categories,name';
@@ -125,6 +135,7 @@ class CategoryController extends \BaseController {
 		
 		// Process update user information
 		$oCategory->name  = $aCategoryData['name'];
+		$oCategory->layout_id = $aCategoryData['layout_id'];
 		$oCategory->save();
 		
 		return Redirect::route('admin.category.index')->with('flash_notice', 'Category <strong>"'.$oCategory->name.'"</strong> had been successfully updated.');

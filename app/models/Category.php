@@ -23,6 +23,9 @@ class Category extends Eloquent
 	 */
 	protected $guarded = array('id');
 	
+	/**
+	 * Get category select list
+	 */
 	public function getCategorySelect()
 	{
 		$oCategories = $this->orderBy('name', 'ASC')->get();
