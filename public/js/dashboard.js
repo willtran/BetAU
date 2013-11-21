@@ -45,3 +45,31 @@ var category = {
 			}
 	}	
 }
+
+var layout = {
+	/*
+	 * Show/Hide layout edit when change the value layout type
+	 */
+	updateLayoutEdit: function(){
+		 // Disable all layout
+		 $('#layout_edit_form').find('.layout_header_block').hide();
+		 $('#layout_edit_form').find('.layout_footer_block').hide();
+		 $('#layout_edit_form').find('.layout_home_block').hide();
+		 $('#layout_edit_form').find('.layout_article_block').hide();
+		 // Show current selected layout edit fields
+		 var layout = $('#layout_type').val();
+		 $('#layout_edit_form').find('.layout_'+layout+'_block').fadeIn(400);
+	}
+}
+
+$(function() {
+ //We initially hide the all layout edit
+ $('#layout_edit_form').find('.layout_header_block').hide();
+ $('#layout_edit_form').find('.layout_footer_block').hide();
+ $('#layout_edit_form').find('.layout_home_block').hide();
+ $('#layout_edit_form').find('.layout_article_block').hide();
+ 
+ // Show current selected layout edit fields
+ var layout = $('#layout_type').val();
+ $('#layout_edit_form').find('.layout_'+layout+'_block').show();
+});

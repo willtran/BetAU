@@ -119,7 +119,7 @@ class DomainController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		// Get selected user
+		// Get selected domain
 		$oDomain = Domain::find($id);
 		if(!$oDomain)
 		{
@@ -153,7 +153,7 @@ class DomainController extends \BaseController {
 			return Redirect::route('admin.domain.edit', array('domain' => $oDomain->id))->withErrors($oValidation);
 		}
 		
-		// Process update user information
+		// Process update domain information
 		$oDomain->name = $aDomainData['name'];
 		$oDomain->analytic_id = $aDomainData['analytic_id'];
 		$oDomain->is_active = $aDomainData['is_active'];
