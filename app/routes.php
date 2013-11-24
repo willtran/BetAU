@@ -12,8 +12,8 @@
 */
 
 /** Front-End route handlers**/
-Route::get('/', 'IndexController@index');
-Route::get('/{article}', 'IndexController@show');
+Route::get('/', array('as'=> 'index', 'uses' => 'IndexController@index'));
+Route::get('/{article}', array('as' => 'article', 'uses'=>'IndexController@article'));
 
 ;/*
  * 	Log-in route handlers
@@ -50,6 +50,10 @@ Route::group(array('prefix'=>'admin','before'=>'auth'), function ()
 	 * Route handler for layout
 	 */
 	Route::resource('layout', 'LayoutController');
+	/**
+	 * Route handler for article
+	 */
+	Route::resource('article', 'ArticleController');
 });
 
 /**

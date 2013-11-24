@@ -63,6 +63,15 @@ body
 	vertical-align: middle;
 	border-radius: 8px;
 	cursor: pointer;
+	-webkit-transition: background 0.8s ease;
+    -moz-transition: background 0.8s ease;
+    -o-transition: background 0.8s ease;
+    transition: background 0.8s ease;
+}
+.booker_list li.booker_item:hover
+{
+	color: #FFFFFF;
+	background: #dfb420;
 }
 .booker_list li.featured
 {
@@ -92,7 +101,6 @@ body
 }
 .booker_bonus span.bonus
 {
-	color: #212121;	
 	font-size: 30px;
 	font-weight: bolder;
 	vertical-align: middle;
@@ -172,10 +180,18 @@ li.featured .booker_bonus span.bonus
 	vertical-align: middle;
 	margin: auto;
 }
+li.featured:hover .booker_bonus span.bonus
+{
+	color: #ffffff;	
+}
 li.featured .booker_bonus span.label
 {
 	color: #ffa303;	
 	font-size: 16px;
+}
+li.featured:hover .booker_bonus span.label
+{
+	color: #ffffff;
 }
 li.featured .booker_description
 {

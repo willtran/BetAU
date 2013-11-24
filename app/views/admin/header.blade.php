@@ -30,6 +30,10 @@
 							<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="layout_icon"/>
 							Layouts
 						</a>
+						<a href="{{ URL::route('admin.article.index')}}" @if($menu['main']=='article') class="active" @endif>
+							<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="article_icon"/>
+							Articles
+						</a>
 						<a href="#" id="user_setting">
 							<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="user_setting_icon"/>
 							{{ ucfirst(Auth::user()->username) }}

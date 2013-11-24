@@ -146,6 +146,8 @@ class Layout extends Eloquent
 		$sArticleTitleColor	= $aLayoutData['article_title_color']?$aLayoutData['article_title_color']:'001e3a';
 		$sArticleHoverColor	= $aLayoutData['article_title_hover_color']?$aLayoutData['article_title_hover_color']:'ffa303';
 		$sArticleDescColor 	= $aLayoutData['article_description_color']?$aLayoutData['article_description_color']:'004b20';
+		$sArticlePageTitleColor = $aLayoutData['article_page_title_color']?$aLayoutData['article_page_title_color']:'ffffff';
+		$sArticleTitleBackgroundColor = $aLayoutData['article_title_background_color']?$aLayoutData['article_title_background_color']:'ff742c';
 		
 		// Header CSS File
 		$headerCSS = File::get($sCoreLayout.'/css/header.css');
@@ -172,6 +174,13 @@ class Layout extends Eloquent
 		File::put($sCSSPath."/home.css", $homeCSS);
 		
 		// Article CSS File
+		$articleCSS = File::get($sCoreLayout.'/css/article.css');
+		$articleCSS = str_replace('<article_background>', $sArticleBG, $articleCSS);
+		$articleCSS = str_replace('<article_title_background_color>', "#".$sArticleTitleBackgroundColor, $articleCSS);
+		$articleCSS = str_replace('<article_title_color>', "#".$sArticlePageTitleColor, $articleCSS);
+		$articleCSS = str_replace('<article_description_color>', "#".$sArticleDescColor, $articleCSS);
+		File::put($sCSSPath."/article.css", $articleCSS);
+		
 		return true;
 	}
 }

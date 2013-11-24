@@ -116,6 +116,10 @@ return array(
 		'article_background'		=> 'Article Background Image',
 		'article_title_color'		=> 'Article Title Color',
 		'article_description_color'	=> 'Article Description Color',
+		
+		'domain_id'	=> 'Domain',
+		'description'=> 'Short Description',
+		'image'		=> 'Cover Image'
 	),
 
 );

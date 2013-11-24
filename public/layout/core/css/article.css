@@ -1,0 +1,176 @@
+/** body **/
+body
+{
+	margin: 0;
+	padding: 0;
+	background: #CCCCCC;
+	font-family: Arial, Helvetica, sans-serif;
+}
+/** content page **/
+.content_wrapper
+{
+	background: url('<article_background>') repeat-y;
+	width: 980px;
+	height: auto;
+	margin: 0 auto;
+	display: block;
+	overflow:hidden;	
+}
+#ads
+{
+	margin: 10px auto;
+	text-align: center;
+	height: 90px;
+	width: 728px;
+}
+#article_title
+{
+	margin 10px auto;
+	background-color: <article_title_background_color>;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 15px 10px 5px 10px;
+	color: <article_title_color>;
+	vertical-align: bottom;
+}
+#article_content
+{
+	width: 67%;
+	text-align: justify;
+	margin: 5px 0 20px 15px;
+	display: inline-block;
+}
+#article_content .cover_image
+{
+	margin: 10px auto;
+}
+#article_content .cover_image img
+{
+	width: 100%;
+}
+#article_content .description
+{
+	font-size: 14px;
+	color: <article_description_color>;
+	text-align: justify;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+#article_content .content
+{
+	font-size: 0.8em;
+}
+#bookmarker_list
+{
+	margin: 15px 10px 20px 10px;
+	float: right;
+	width: 28%;
+}
+#bookmarker_list ul
+{
+	margin: 0;
+	padding: 0;
+}
+#bookmarker_list ul li
+{
+	display: block;
+	margin-bottom: 10px;
+	vertical-align: middle;
+}
+#bookmarker_list .booker_item
+{
+	width: 270px;
+	height: 137px;
+	margin-bottom: 15px;
+	background: #FFFFFF;
+	vertical-align: middle;
+	border-radius: 12px;
+	overflow:hidden;
+	box-shadow: 2px 2px 10px 5px #888888 inset;
+	cursor: pointer;
+	-webkit-transition: background 0.8s ease;
+    -moz-transition: background 0.8s ease;
+    -o-transition: background 0.8s ease;
+    transition: background 0.8s ease;
+}
+#bookmarker_list .booker_item:hover
+{
+	color: #FFFFFF;
+	background: #dfb420;
+}
+#bookmarker_list .booker_item .booker_logo
+{
+	float:left;
+}
+#bookmarker_list .booker_item .booker_bonus
+{
+	width: 120px;
+	float:left;
+	margin: 25px 0px;
+	padding-left: 10px; 
+}
+#bookmarker_list .booker_item .booker_bonus img.currency
+{
+	height: 36px;
+}
+#bookmarker_list .booker_item .booker_bonus .bonus
+{
+	text-align: left;
+	font-size: 56px;
+	font-weight: bold;
+}
+#bookmarker_list .booker_item .booker_bonus .label
+{
+	margin-left: 35px;
+	text-align: right;
+	font-weight: bold;
+}
+#bookmarker_list .booker_item .claim_submit
+{
+	float:right;
+}
+.claim_submit
+{
+	display: inline-block;
+	width: 40px;
+	height: 35px;
+	border: 1px solid #CCCCCC;
+	border-radius: 5px;
+	text-align: center;
+	color: #FFFFFF;
+	font-weight: bold;
+	margin: 40px 10px;
+	padding: 10px;
+	vertical-align: middle;
+	overflow: hidden;
+	position: relative;
+	-webkit-transition: color 0.8s ease;
+    -moz-transition: color 0.8s ease;
+    -o-transition: color 0.8s ease;
+    transition: color 0.8s ease;
+}
+.claim_submit:hover
+{
+	cursor: pointer;
+	color: #e91111;
+}
+.submit_1
+{
+	background: #f8d201;
+}
+.submit_2
+{
+	background: #319bec;
+}
+.submit_3
+{
+	background: #aae322;
+}
+.submit_4
+{
+	background: #9b3aa6;
+}
+.submit_5
+{
+	background: #f88804;
+}

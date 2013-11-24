@@ -130,6 +130,8 @@
 						{{ Form::file('article_background') }}
 						<br/>
 						<small>(Background image for article list, size <b>(980x567)</b>. Leave this field empty if you want to use default background.)</small>
+						<br/>
+						<small>(This image will be used for the background in article page too.)</small>
 					</td>
 				</tr>
 				<!-- Article title color -->
@@ -163,6 +165,8 @@
 						{{ Form::text('article_description_color', Input::old('article_description_color'))}}
 						<br/>
 						<small>(Hexadecimal color code for the article description text, default color is <font style="color:#004b20;">Green</font>)</small>
+						<br/>
+						<small>(This will be used for the description in article page too.)</small>
 					</td>
 				</tr>
 			<!-- Article Page -->
@@ -170,6 +174,28 @@
 				<td class="form_label part_label">Article Page</td>
 				<td class="form_field"></td>
 			</tr>
+			<!-- Article title color -->
+				<tr>
+					<td class="form_label">
+						{{ Form::label('article_page_title_color','Article Page Title Color') }}
+					</td>
+					<td class="form_field">
+						{{ Form::text('article_page_title_color', Input::old('article_page_title_color'))}}
+						<br/>
+						<small>(Hexadecimal color code for the article title in article page, default color is White)</small>
+					</td>
+				</tr>
+				<!-- Article title hover color -->
+				<tr>
+					<td class="form_label">
+						{{ Form::label('article_title_background_color','Article Title Background Color') }}
+					</td>
+					<td class="form_field">
+						{{ Form::text('article_title_background_color', Input::old('article_title_background_color'))}}
+						<br/>
+						<small>(Hexadecimal color code for the background of article title, default color is <font style="color:#ff742c;">Light Orange</font>)</small>
+					</td>
+				</tr>
 			<!-- Sumbit button -->
 			<tr>
 				<td></td>

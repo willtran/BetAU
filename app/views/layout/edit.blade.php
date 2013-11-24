@@ -118,6 +118,8 @@
 						{{ Form::file('article_background') }}
 						<br/>
 						<small>(Background image for article list, size <b>(980x567)</b>. Leave this field empty if you want to use the current one..)</small>
+						<br/>
+						<small>(This image will be used for the background in article page too.)</small>
 					</td>
 				</tr>
 				<!-- Home Page CSS -->
@@ -135,6 +137,16 @@
 				<td class="form_label part_label">Article Page</td>
 				<td class="form_field"></td>
 			</tr>
+			<!-- Article Page CSS -->
+				<tr class="layout_article_block">
+					<td class="form_label">
+						{{ Form::label('article_css', 'Article Page CSS')}}
+						<span class="required">(*)</span>
+					</td>
+					<td class="form_field">
+						{{ Form::textarea('article_css', $layout->article_css, array('cols'=>60,'rows'=>30)) }}
+					</td>
+				</tr>
 			<!-- Sumbit Button -->
 			<tr>
 				<td class="form_label"></td>

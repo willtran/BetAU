@@ -1,3 +1,4 @@
+/** 
  * 	General
  */
 body
@@ -165,6 +166,10 @@ button:hover
 {
 	background: url("../images/dashboard/main_menu.png") no-repeat -300px 2px;
 }
+#user_setting_block img.article_icon
+{
+	background: url("../images/dashboard/main_menu.png") no-repeat -250px 2px;
+}
 #user_setting_block a:hover img.home_icon,#user_setting_block a.active img.home_icon
 {
 	background: url("../images/dashboard/main_menu.png") no-repeat 1px -29px;
@@ -184,6 +189,10 @@ button:hover
 #user_setting_block a:hover img.layout_icon,#user_setting_block a.active img.layout_icon
 {
 	background: url("../images/dashboard/main_menu.png") no-repeat -300px -29px;
+}
+#user_setting_block a:hover img.article_icon,#user_setting_block a.active img.article_icon
+{
+	background: url("../images/dashboard/main_menu.png") no-repeat -250px -29px;
 }
 #user_setting_block img.user_setting_icon
 {
@@ -304,6 +313,10 @@ button:hover
 	margin: 22px auto;
 	border-spacing: 0;
 	width: 70%;
+}
+.extend_width
+{
+	width: 90%!important;
 }
 #management_table thead
 {
@@ -647,7 +660,7 @@ a.domain_build_link:hover
 }
 .content_section table tr td small
 {
-	font-size: 8pt;
+	font-size: 10pt;
 	font-style: italic;
 }
 /**

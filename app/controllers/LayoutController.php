@@ -50,6 +50,8 @@ class LayoutController extends \BaseController {
 			'article_title_color'		=> 'alpha_num|min:6|max:6',
 			'article_title_hover_color'	=> 'alpha_num|min:6|max:6',
 			'article_description_color'	=> 'alpha_num|min:6|max:6',
+			'article_page_title_color' 	=> 'alpha_num|min:6|max:6',
+			'article_title_background_color'=> 'alpha_num|min:6|max:6',
 		);
 		
 		// Process validation checking, redirect to create form if the validation was failed,
@@ -102,6 +104,8 @@ class LayoutController extends \BaseController {
 			$oLayout->header_css = @file_get_contents($sLayoutPath."header.css");
 			$oLayout->footer_css = @file_get_contents($sLayoutPath."footer.css");
 			$oLayout->home_css = @file_get_contents($sLayoutPath."home.css");
+			$oLayout->article_css = @file_get_contents($sLayoutPath."article.css");
+			
 			return View::make('layout.edit')
 					->with('layout', $oLayout)
 					->with('layout_type', 'header')
@@ -223,6 +227,13 @@ class LayoutController extends \BaseController {
 				break;
 				
 			case 'article':
+				// Remove all HTML tag to keep host safe
+				$sArticleCSS = strip_tags($aLayoutData['article_css']);
+				
+				// Update article page css
+				$handle = fopen($sCSSPath."/article.css",'w');
+				fwrite($handle, $sArticleCSS);
+				fclose($handle);
 				break;
 		}
 		
