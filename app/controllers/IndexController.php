@@ -70,6 +70,11 @@ class IndexController extends BaseController {
 		$oArticle = new Article();
 		$aArticle = $oArticle->getArticleByLabel($aDomain->id, $article);
 		
+		if(!$aArticle)
+		{
+			return View::make('404');
+		}
+
 		// Process layout link for domain
 		$cssLinks = array();
 		if($aDomain->is_customized)

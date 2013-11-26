@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-		<link rel="shortcut icon" href="{{ asset('/images/favicon.ico') }}" type="image/x-icon">
+		<link rel="shortcut icon" href="{{ asset('/images/dashboard/favicon.ico') }}" type="image/x-icon">
 		<title>Bet AU Content Management System</title>
 		{{ HTML::style('/css/dashboard.css') }}
 		{{ HTML::script('/js/jquery-1.10.2.min.js') }}

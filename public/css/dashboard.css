@@ -416,7 +416,7 @@ div.domain_item_block
 {
 	height: 30px;
 	margin: 0px 5px 5px 30px;
-	width: 250px;
+	width: 280px;
 	display:block;
 	border: 1px solid #d4d8de;
 	border-radius: 5px;
@@ -458,6 +458,16 @@ a.domain_edit_link
 a.domain_edit_link:hover
 {
 	background: url('../images/dashboard/domain_icon.png') no-repeat -24px -20px;
+}
+a.domain_delete_link
+{
+	background: url('../images/dashboard/user.png') no-repeat -108px 6px;
+	border-left: 1px solid #d4d8de;
+}
+a.domain_delete_link:hover
+{
+	background: url('../images/dashboard/user.png') no-repeat -108px -22px;
+	border-left: 1px solid #d4d8de;
 }
 a.domain_build_link
 {

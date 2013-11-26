@@ -20,6 +20,9 @@
 							<a class="domain_build_link" href="#" alt="" title="Domain Built Link">
 								<img src="{{asset('/images/dashboard/blank.png')}}"/>
 							</a>
+							<a class="domain_delete_link" href="javascript:void(0);" onclick="domains.domainDelete('{{ URL::route('admin.domain.destroy', array('domain'=>$domain->id)) }}',{{ $domain->id }}, '{{ $domain->name }}');">
+								<img src="{{asset('/images/dashboard/blank.png')}}" alt="" title="Domain Delete"/>
+							</a>
 							<a class="domain_edit_link" href="{{ URL::route('admin.domain.edit',array('domain'=>$domain->id)) }}">
 								<img src="{{asset('/images/dashboard/blank.png')}}" alt="" title="Domain Edit"/>
 							</a>

@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="keywords" content="{{ $domain->keyword}}">
 		<meta name="description" content="{{ $domain->keyword }}">
-		<link rel="shortcut icon" href="{{ asset('/images/favicon.ico') }}" type="image/x-icon">
+		<link rel="shortcut icon" href="{{ asset('/images/dashboard/favicon.ico') }}" type="image/x-icon">
 		<link href="{{ asset($cssLinks['header']) }}" rel="stylesheet" type="text/css" media="screen">
 		<link href="{{ asset($cssLinks['home']) }}" rel="stylesheet" type="text/css" media="screen">
 		<link href="{{ asset($cssLinks['footer']) }}" rel="stylesheet" type="text/css" media="screen">
@@ -96,7 +96,7 @@
 										@if($article->cover_image)
 											<img src="{{ asset($article->cover_image) }}"/>
 										@else
-											<img src="{{ asset('/layout/core/images/article_image_'.($article->id%2+1).'.png') }}"/>
+											<img src="{{ asset('/layout/core/images/article_image_'.(($article->id)%2+1).'.png') }}"/>
 										@endif
 									</div>
 									<div class="article_description">
@@ -109,6 +109,9 @@
 										<a href="{{URL::route('article', array('article'=>$article->label))}}"><img src="{{ asset('/layout/core/images/blank.png')}}"/></a>
 									</div>
 								</td>
+								@if($domain->article_columns == 2 && count($articles) == 1)
+									<td class="two_column"></td>
+								@endif
 							@if(($key+1)%$domain->article_columns == 0 || $key == count($articles)-1)
 							</tr>
 							@endif

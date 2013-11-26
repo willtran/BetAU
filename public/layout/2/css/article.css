@@ -46,6 +46,7 @@ body
 }
 #article_content .cover_image img
 {
+	border-radius: 8px;
 	width: 100%;
 }
 #article_content .description

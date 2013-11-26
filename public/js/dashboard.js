@@ -22,6 +22,29 @@ var user = {
 	}	
 }
 
+var domains = { 
+	/*
+	 * Domain delete process
+	 */
+	domainDelete: function(url,id,name){
+			self =$(this);
+			
+			if(confirm('Are you sure you want to delete domain "'+name+'"?')){
+				$.ajax({
+					url: url,
+					type: 'DELETE',
+					success: function(data){
+						window.location.href = data;
+					},
+					error: function(data){
+						alert("There is an error while deleting.");
+						console.log(data);
+					}
+				});
+			}
+	}	
+};
+
 var category = { 
 	/*
 	 * User delete process
@@ -44,7 +67,7 @@ var category = {
 				});
 			}
 	}	
-}
+};
 
 var layout = {
 	/*
@@ -60,7 +83,7 @@ var layout = {
 		 var layout = $('#layout_type').val();
 		 $('#layout_edit_form').find('.layout_'+layout+'_block').fadeIn(400);
 	}
-}
+};
 
 $(function() {
  //We initially hide the all layout edit

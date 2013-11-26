@@ -252,6 +252,7 @@ li.featured .claim_submit
 .article .two_column .article_image img
 {
 	width: 450px;
+	height: 112px;
 	margin: 10px auto;
 	display: block;
 	border-radius: 5px;

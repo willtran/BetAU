@@ -26,8 +26,18 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
-
+	'url' => 'http://dev.tiennpl.betau.com',
+	
+	/*
+	|--------------------------------------------------------------------------
+	| Application Main Host
+	|--------------------------------------------------------------------------
+	|
+	| This is the main host name with CMS feature
+	|
+	*/
+	'host'	=> 'dev.tiennpl.betau.com',
+		
 	/*
 	|--------------------------------------------------------------------------
 	| Application Timezone

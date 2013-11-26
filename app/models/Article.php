@@ -59,7 +59,7 @@ class Article extends Eloquent
 		$aArticles = DB::table('articles')
 						->where('domain_id', '=', $iDomainId)
 						->orderBy('updated_at','DESC')
-						->get(array('domain_id','title','label', 'cover_image', 'description','short_content'));
+						->get(array('id', 'domain_id','title','label', 'cover_image', 'description','short_content'));
 		
 		return $aArticles;
 	}

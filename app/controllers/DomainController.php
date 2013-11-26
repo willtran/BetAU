@@ -177,7 +177,22 @@ class DomainController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		// Get selected domain
+		$oDomain = Domain::find($id);
+		if(!$oDomain)
+		{
+			Redirect::route('admin.domain.index')
+					->with('flash_error', 'Selected domain not found!');
+		}
+		
+		$sName = $oDomain->name;
+		// Process delete user
+		$oDomain->delete();
+		
+		/**TODO process clear domain layout css if it was customized **/
+		
+		Redirect::route('admin.domain.index')
+					->with('flash_notice', 'Domain "<strong>'.$sName.'</strong>" had been deleted successfully!');
 	}
 
 }

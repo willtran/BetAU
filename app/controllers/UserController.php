@@ -17,7 +17,7 @@ class UserController extends \BaseController {
 		if(Auth::attempt($aUser))
 		{
 			// Redirect to the previous access link, otherwise redirect to the admin dashboard home pagw
-			$sRedirectUrl = Session::get('redirect_url', 'admin/index');
+			$sRedirectUrl = Session::get('redirect_url', 'admin');
 			Session::forget('redirect_url');
 			return Redirect::to($sRedirectUrl)
 				->with('flash_notice', 'You are successfuly logged in.');
@@ -194,7 +194,7 @@ class UserController extends \BaseController {
 		$oUser = User::find($id);
 		if(!$oUser)
 		{
-			return Redirect::route('admin.user.index')
+			Redirect::route('admin.user.index')
 					->with('flash_error', 'Selected user not found!')
 					->withInput();
 		}

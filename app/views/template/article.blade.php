@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="keywords" content="{{ $domain->keyword }}">
 		<meta name="description" content="{{ $domain->keyword }}">
-		<link rel="shortcut icon" href="{{ asset('/images/favicon.ico') }}" type="image/x-icon">
+		<link rel="shortcut icon" href="{{ asset('/images/dashboard/favicon.ico') }}" type="image/x-icon">
 		<link href="{{ asset($cssLinks['header']) }}" rel="stylesheet" type="text/css" media="screen">
 		<link href="{{ asset($cssLinks['article']) }}" rel="stylesheet" type="text/css" media="screen">
 		<link href="{{ asset($cssLinks['footer']) }}" rel="stylesheet" type="text/css" media="screen">
@@ -34,7 +34,11 @@
 			</div>
 			<div id="article_content">
 				<div class="cover_image">
-					<img src="{{ asset('/layout/core/images/article_image_'.($article->id%2+1).'.png') }}"/>
+					@if($article->cover_image)
+						<img src="{{ asset($article->cover_image) }}"/>
+					@else
+						<img src="{{ asset('/layout/core/images/article_image_'.($article->id%2+1).'.png') }}"/>
+					@endif
 				</div>
 				<div class="description">
 					{{ $article->description }}
