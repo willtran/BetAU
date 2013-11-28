@@ -39,23 +39,27 @@
 							{{ ucfirst(Auth::user()->username) }}
 							<img src ="{{asset('/images/dashboard/arrow_down.png')}}" alt="" class="arrow_down"/>
 						</a>
+						<ul id="user_setting_sub_menu">
+							<li><a href="{{ URL::route('admin.user.settings',array('user' => Auth::user()->id)) }}">Account Settings</a></li>
+							<li><a href="#">Change Password</a></li>
+						</ul>
 					@endif
 				</a>
 			</li>
 			
-				<li id="access_block">
-					@if(Auth::check())
-						<a href="{{URL::route('logout')}}">
-							<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="access_icon"/>
-							Logout
-						</a>
-					@else
-						<a href="{{URL::route('login')}}">
-							<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="access_icon"/>
-							Login
-						</a>
-					@endif
-				</li>
+			<li id="access_block">
+				@if(Auth::check())
+					<a href="{{URL::route('logout')}}">
+						<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="access_icon"/>
+						Logout
+					</a>
+				@else
+					<a href="{{URL::route('login')}}">
+						<img src ="{{asset('/images/dashboard/blank.png')}}" alt="" class="access_icon"/>
+						Login
+					</a>
+				@endif
+			</li>
 		</ul>
 	</div>
 </div>

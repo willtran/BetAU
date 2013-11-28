@@ -55,9 +55,14 @@ class Domain extends Eloquent
 		// Process
 		$aDomains = DB::table('domains')
 			->join('categories','domains.category_id','=','categories.id')
-			->join('layouts','layouts.id','=','categories.layout_id')
-			->where('domains.name', '=', $sHost)->limit(1)->get(array('domains.*','layouts.id as layout_id'));
-		
+			->where('domains.name', '=', $sHost)
+			->where(function($query){
+				$query->where('categories.layout_id', '>', 0)
+					  ->orWhere('domains.is_customized' ,'=', 1);
+			})
+			->limit(1)
+			->get(array('domains.*','categories.layout_id as layout_id'));
+
 		if(!$aDomains)
 		{
 			return false;

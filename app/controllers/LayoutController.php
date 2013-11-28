@@ -251,6 +251,24 @@ class LayoutController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		// Get selected layout
+		$oLayout = Layout::find($id);
+		if(!$oLayout)
+		{
+			Redirect::route('admin.layout.index')
+					->with('flash_error', 'Selected layout not found!')
+					->withInput();
+		}
+		
+		// Unset all linked categories
+		$affectedRows = Category::where('layout_id', '=', $oLayout->id)->update(array('layout_id' => 0));
+		
+		// Delete all layout image and css file
+		$oLayout->removeLayoutStorage();
+		 
+		// Process delete layout
+		$oLayout->delete();
+		
+		return 'The layout <strong>'.$oLayout->name.'</strong> had been successfully deleted!';
 	}	
 }

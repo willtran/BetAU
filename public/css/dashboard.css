@@ -110,12 +110,12 @@ button:hover
 	margin: 0px;
 	list-style: none;
 }
-#mini_menu li
+#mini_menu > li
 {
 	height: 58px;
 	display: inline-block;
 }
-#mini_menu a
+#mini_menu > li > a
 {
 	height: 58px;
 	display: table-cell;
@@ -130,7 +130,7 @@ button:hover
 	width: 25px;
 	height: 25px;
 }
-#user_setting_block a
+#user_setting_block > a
 {
 	color: #CCCCCC;
 	padding: 10px;
@@ -228,7 +228,33 @@ button:hover
 {
 	background: url("../images/dashboard/mini_menu_icon.png") no-repeat -16px 3px;
 }
-
+#user_setting_sub_menu
+{
+	padding: 0px;
+	position: absolute;
+	top: 58px;
+	right: 96px;
+	border: 1px solid #323837;
+	background: #222222;
+	text-align: center;
+	color: #CCCCCC;
+	font-weight: bold;
+}
+#user_setting_sub_menu > li
+{
+	display: block;
+	vertical-align: middle;
+	border-bottom: 1px solid #323837;
+	overflow: hidden;
+	
+}
+#user_setting_sub_menu > li  a
+{
+	text-decoration: none;
+	color: #CCCCCC;
+	padding: 10px;
+	display: block;
+}
 /**
  * Sidebar style
  */
@@ -349,22 +375,22 @@ button:hover
 {
 	background-color: #ededed;
 }
-a.user_edit img{
+a.item_edit img{
 	height: 32px;
 	width: 32px;
 	background: url('../images/dashboard/user.png') no-repeat -33px 8px;
 }
-a.user_edit:hover img{
+a.item_edit:hover img{
 	height: 32px;
 	width: 32px;
 	background: url('../images/dashboard/user.png') no-repeat -33px -20px;
 }
-a.user_delete img{
+a.item_delete img{
 	height: 32px;
 	width: 32px;
 	background: url('../images/dashboard/user.png') no-repeat  -108px 8px;	
 }
-a.user_delete:hover img{
+a.item_delete:hover img{
 	height: 32px;
 	width: 32px;
 	background: url('../images/dashboard/user.png') no-repeat  -108px -20px;	

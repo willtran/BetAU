@@ -179,9 +179,29 @@ class UserController extends \BaseController {
 		$oUser->level_id = $aUserData['level_id'];
 		$oUser->save();
 		
-		return Redirect::route('admin.user.index')->with('flash_notice', 'User <strong>'.$oUser->username.'</strong> had been successfully updated.');
+		if(isset($aUserData['method']) && $aUserData['method'] == 'user_setting')
+		{
+			return Redirect::route('admin.user.settings', array('user' => $oUser->id))->with('flash_notice', 'User settings had been successfully updated.');
+		}
+		else
+		{
+			return Redirect::route('admin.user.index')->with('flash_notice', 'User <strong>'.$oUser->username.'</strong> had been successfully updated.');
+		}
 	}
-
+	
+	public function setting($id)
+	{
+		$oUser = Auth::user();
+		if($oUser->id != $id)
+		{
+			return Redirect::route('admin.index')->with('flash_error', 'You don\'t have permissions to access that page. So you had been redirected !');
+		}
+		else 
+		{
+			return View::make('user.setting')->with('user', $oUser)
+					->with('menu', array('main'=>'setting', 'side_bar'=>'edit'));
+		}
+	}
 	/**
 	 * Remove the specified resource from storage.
 	 *

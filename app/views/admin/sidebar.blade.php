@@ -62,6 +62,18 @@
 						Add New Article
 					</a>
 				</li>
+			<!-- Article menu site bar -->
+			@elseif($menu['main'] == 'setting')
+				<li class="sidebar_menu">
+					<a href="{{URL::route('admin.user.settings', array('user'=>Auth::user()->id)) }}"  @if($menu['side_bar'] == 'edit') class="active" @endif>
+						User Settings
+					</a>
+				</li>
+				<li class="sidebar_menu">
+					<a href="{{URL::route('admin.user.password', array('user'=>Auth::user()->id)) }}"  @if($menu['side_bar'] == 'password') class="active" @endif>
+						Change Password
+					</a>
+				</li>
 			@else
 				<li>
 					<a href="{{URL::route('admin.index')}}" class="active">

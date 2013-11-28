@@ -72,6 +72,28 @@ class Layout extends Eloquent
 	}
 	
 	/**
+	 * Remove layout directory to store css and image file
+	 */
+	public function removeLayoutStorage()
+	{
+		$iId = $this->id;
+		// Return false if gotten no id for selecting layout
+		if(!$iId)
+		{
+			return false;
+		}
+		
+		// Delete directory of layout
+		$sLayoutDirectory = public_path() . "/layout/" . $iId;
+		if(is_dir($sLayoutDirectory))
+		{
+			$this->recursiveRemoveDirectory($sLayoutDirectory);
+		}
+		
+		return true;
+	}
+	
+	/**
 	 * Create layout css file and background image
 	 */
 	public function createLayoutFiles($aLayoutData)
@@ -182,5 +204,27 @@ class Layout extends Eloquent
 		File::put($sCSSPath."/article.css", $articleCSS);
 		
 		return true;
+	}
+
+	/** 
+	 * Recursive method to remove all child file and directory in given directory
+	 * @param <string> Directory need to remove childs
+	 */
+	private function recursiveRemoveDirectory($sDirectory)
+	{
+		// Match file with partern
+		foreach(glob("{$sDirectory}/*") as $file)
+		{
+			if(is_dir($file))
+			{
+				$this->recursiveRemoveDirectory($file);
+			}
+			else 
+			{
+				@unlink($file);	
+			}
+		}
+		// Remove directory
+		rmdir($sDirectory);
 	}
 }

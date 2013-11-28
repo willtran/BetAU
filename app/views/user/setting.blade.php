@@ -8,16 +8,21 @@
 		@endforeach
 	@endif
 	<div class="content_section_title">
-		Edit User
+		User Settings
 	</div>
 	<div class="content_section">
 	<!-- User create form -->
-	{{ Form::open(array('id'=> 'user_edit_form','action' => array('UserController@update', $user->id), 'method' =>'put')) }}
+	{{ Form::open(array('id'=> 'user_setting_form','action' => array('UserController@update', $user->id), 'method' =>'put')) }}
 		<table cellspacing="10">
-			<!-- Method -->
-				{{ Form::hidden('method', 'user_edit') }}
+			<!-- User Id -->
+				{{ Form::hidden('method', 'user_setting') }}
 			<!-- User Id -->
 				{{ Form::hidden('user_id', $user->id) }}
+			<!-- User Level Id -->
+			<tr>
+				<td class="form_label"> </td>
+				<td class="form_field">{{ Form::hidden('level_id', $user->level_id) }}</td>
+			</tr>
 			<!-- Email field -->
 			<tr>
 				<td class="form_label">
@@ -38,21 +43,10 @@
 					{{ Form::text('username', $user->username) }}
 				</td>
 			</tr>
-			<tr>
-				<td class="form_label">
-					{{ Form::label('level_id','User Level') }}
-					<span class="required">(*)</span>
-				</td>
-				<td class="form_field">{{ Form::select('level_id', array(
-									''	=> '--- Select a level ---',
-									'1' => 'Admin',
-									'2' => 'Editor'), 
-								$user->level_id)}}</td>
-			</tr>
 			<!-- Sumbit button -->
 			<tr>
 				<td class="form_label"></td>
-				<td class="form_field">{{ Form::submit('Edit User')}}
+				<td class="form_field">{{ Form::submit('Edit Settings')}}
 					   {{ Form::button('Cancel', array(
 							'onclick' => "document.location.href='".URL::previous()."'" )
 						)}}

@@ -38,6 +38,11 @@ Route::group(array('prefix'=>'admin','domain' => Config::get('app.host'), 'befor
 	  *  Route handler for users
 	  */
 	Route::resource('user', 'UserController');
+	
+	Route::get('user/{user}/settings', array('as'=>'admin.user.settings', 'uses'=>'UserController@setting'));
+	
+	Route::get('user/{user}/pasword', array('as'=>'admin.user.password', 'uses'=>'UserController@password'));
+	
 	/**
 	 * Route handler for domains
 	 */

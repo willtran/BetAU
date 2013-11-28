@@ -243,7 +243,22 @@ class ArticleController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		// Get selected article
+		$oArticle = Article::find($id);
+		if(!$oArticle)
+		{
+			Redirect::route('admin.article.index')
+					->with('flash_error', 'Selected article not found!')
+					->withInput();
+		}
+		
+		// Delete cover image
+		$oArticle->removeCoverImage();
+		 
+		// Process delete article
+		$oArticle->delete();
+		
+		return 'The article <strong>'.$oArticle->title.'</strong> had been successfully deleted!';
 	}
 	
 	/**

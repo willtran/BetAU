@@ -23,7 +23,8 @@
 							<td align="center">{{ $layout->name }}</td>
 							<td align="center">{{ $layout->label }}</td>
 							<td align="center">
-								<a class="user_edit" href="{{ URL::route('admin.layout.edit',array('layout' => $layout->id)) }}" ><img src="{{ asset('/images/dashboard/blank.png') }}" alt="Layout Edit" title="Edit layout"/></a>
+								<a class="item_edit" href="{{ URL::route('admin.layout.edit',array('layout' => $layout->id)) }}" ><img src="{{ asset('/images/dashboard/blank.png') }}" alt="Layout Edit" title="Edit layout"/></a>
+								<a class="item_delete" href="javascript:void(0);" onclick="layout.layoutDelete('{{ URL::route('admin.layout.destroy', array('layout'=>$layout->id)) }}',{{ $layout->id }});"><img src="{{ asset('/images/dashboard/blank.png') }}" alt="Layout Delete" title="Delete layout"/></a>
 							</td>
 						</tr>
 					@endforeach

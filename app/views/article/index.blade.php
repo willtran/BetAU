@@ -27,7 +27,8 @@
 							<td align="center">{{ $article->domain_name }}</td>
 							<td align="center">{{ $article->updated_at }}</td>
 							<td align="center">
-								<a class="user_edit" href="{{ URL::route('admin.article.edit',array('article' => $article->id)) }}" ><img src="{{ asset('/images/dashboard/blank.png') }}" alt="Layout Edit" title="Edit article"/></a>
+								<a class="item_edit" href="{{ URL::route('admin.article.edit',array('article' => $article->id)) }}" ><img src="{{ asset('/images/dashboard/blank.png') }}" alt="Layout Edit" title="Edit article"/></a>
+								<a class="item_delete" href="javascript:void(0);" onclick="article.articleDelete('{{ URL::route('admin.article.destroy', array('article'=>$article->id)) }}',{{ $article->id }});" ><img src="{{ asset('/images/dashboard/blank.png') }}" alt="Layout Edit" title="Edit article"/></a>
 							</td>
 						</tr>
 					@endforeach

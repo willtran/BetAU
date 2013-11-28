@@ -86,4 +86,48 @@ class Article extends Eloquent
 		// Return the first one
 		return $aArticles[0];
 	}
+	
+	/**
+	 * Remove layout directory to store css and image file
+	 */
+	public function removeCoverImage()
+	{
+		$iId = $this->id;
+		// Return false if gotten no id for selecting layout
+		if(!$iId)
+		{
+			return false;
+		}
+		
+		// Delete directory of layout
+		$sStorageDirectory = public_path() . "/article/" . $iId;
+		if(is_dir($sStorageDirectory))
+		{
+			$this->recursiveRemoveDirectory($sStorageDirectory);
+		}
+		
+		return true;
+	}
+	
+	/** 
+	 * Recursive method to remove all child file and directory in given directory
+	 * @param <string> Directory need to remove childs
+	 */
+	private function recursiveRemoveDirectory($sDirectory)
+	{
+		// Match file with partern
+		foreach(glob("{$sDirectory}/*") as $file)
+		{
+			if(is_dir($file))
+			{
+				$this->recursiveRemoveDirectory($file);
+			}
+			else 
+			{
+				@unlink($file);	
+			}
+		}
+		// Remove directory
+		rmdir($sDirectory);
+	}
 }

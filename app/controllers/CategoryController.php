@@ -11,7 +11,7 @@ class CategoryController extends \BaseController {
 	{
 		// Get all categories in the system
 		$aCategories = DB::table('categories')
-						->join('layouts', 'categories.layout_id', '=', 'layouts.id')
+						->leftJoin('layouts', 'categories.layout_id', '=', 'layouts.id')
 						->orderBY('categories.name', 'ASC')
 						->get(array('categories.*', 'layouts.name as layout_name'));
 		
